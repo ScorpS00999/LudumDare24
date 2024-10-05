@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float jumpForce = 5f;
     [SerializeField] private float bounceForce = 5f;
     [SerializeField] private int maxJump = 1;
+    [SerializeField] private int attackPoints = 25;
 
     private int JumpNumber = 0;
 
@@ -17,9 +18,11 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] public LayerMask groundLayer;
     [SerializeField] public LayerMask mushroomLayer;
+    [SerializeField] public LayerMask ennemyLayer;
     [SerializeField] public Transform groundCheck;
     public float groundCheckRadius = 0.2f;
     private bool isGrounded = true;
+    private bool hasAttackedEnnemy = false;
 
     private Rigidbody2D rgbd2D;
 
@@ -32,10 +35,6 @@ public class PlayerController : MonoBehaviour
         rgbd2D = GetComponent<Rigidbody2D>();
     }
 
-    private void OnDisable()
-    {
-        Destroy(rgbd2D);
-    }
     #endregion
     private void FixedUpdate()
     {
@@ -50,8 +49,10 @@ public class PlayerController : MonoBehaviour
         if (isGrounded )
         {
             JumpNumber = 0;
+            hasAttackedEnnemy = false;
         }
         Bounce();
+        JumpOnEnnemy();
     }
 
     public void ReadMoveInput(InputAction.CallbackContext context)
@@ -101,7 +102,27 @@ public class PlayerController : MonoBehaviour
         {
             rgbd2D.velocity = new Vector2(rgbd2D.velocity.x, 0f);
             rgbd2D.AddForce(Vector2.up * bounceForce, ForceMode2D.Impulse);
-            Debug.Log(ForceMode2D.Impulse);
+        }
+    }
+
+    public void JumpOnEnnemy()
+    {
+        if (hasAttackedEnnemy) return;
+
+        Collider2D ennemyHit = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, ennemyLayer);
+
+        if (ennemyHit != null)
+        {
+            EnnemyController ennemy = ennemyHit.GetComponent<EnnemyController>();
+
+            if (ennemy != null)
+            {
+                ennemy.TakeDamage(attackPoints);
+                rgbd2D.velocity = new Vector2(rgbd2D.velocity.x, 0f);
+                rgbd2D.AddForce(Vector2.up * bounceForce, ForceMode2D.Impulse);
+                Debug.Log("Ennemy Attacked! " + attackPoints + " points de vie retirés.");
+                hasAttackedEnnemy = true;
+            }
         }
     }
 }
