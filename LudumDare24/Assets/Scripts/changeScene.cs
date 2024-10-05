@@ -7,7 +7,7 @@ public class changeScene : MonoBehaviour
 {
     public void ChangeSceneJeu()
     {
-        SceneManager.LoadScene("Jeu");
+        SceneManager.LoadScene("JeuMargot");
     }
 
     public void Quit()
