@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("Player Attribute : ")]
     [SerializeField] private float mSpeed = 0.1f;
     [SerializeField] private float jumpForce = 5f;
     [SerializeField] private float bounceForce = 5f;
@@ -13,9 +14,14 @@ public class PlayerController : MonoBehaviour
 
     private int JumpNumber = 0;
 
+    [Header("Platform Creation:")]
+    [SerializeField] private GameObject platformPrefab;
+    [SerializeField] private float platformOffset = 1.5f;
+    [SerializeField] private float platformLifetime = 5f;
+
     private Vector2 mMoveVector;
     private bool jumpPressed = false;
-
+    [Header("Layers : ")]
     [SerializeField] public LayerMask groundLayer;
     [SerializeField] public LayerMask mushroomLayer;
     [SerializeField] public LayerMask ennemyLayer;
@@ -23,6 +29,8 @@ public class PlayerController : MonoBehaviour
     public float groundCheckRadius = 0.2f;
     private bool isGrounded = true;
     private bool hasAttackedEnnemy = false;
+    private bool createPlatform = false;
+    private bool canCreatePlatform = true;
 
     private Rigidbody2D rgbd2D;
 
@@ -36,6 +44,7 @@ public class PlayerController : MonoBehaviour
     }
 
     #endregion
+
     private void FixedUpdate()
     {
         Move();
@@ -53,8 +62,10 @@ public class PlayerController : MonoBehaviour
         }
         Bounce();
         JumpOnEnnemy();
+        CreatePlatform();
     }
 
+    #region Input Reading
     public void ReadMoveInput(InputAction.CallbackContext context)
     {
         mMoveVector = context.ReadValue<Vector2>();
@@ -76,6 +87,20 @@ public class PlayerController : MonoBehaviour
             jumpPressed = false;
         }
     }
+    public void ReadPlatformCreationInput(InputAction.CallbackContext context)
+    {
+        // Read pletform creation input (pressed or released)
+        if (context.performed)
+        {
+            createPlatform = true;
+        }
+        else if (context.canceled)
+        {
+            createPlatform = false;
+        }
+    }
+    #endregion
+
     public void Move()
     {
         // Find the direction
@@ -124,5 +149,33 @@ public class PlayerController : MonoBehaviour
                 hasAttackedEnnemy = true;
             }
         }
+    }
+    public void CreatePlatform()
+    {
+        if (createPlatform && platformPrefab != null && canCreatePlatform)
+        {
+            // Create a platform above player's head
+            Vector3 platformPosition = new Vector3(transform.position.x, transform.position.y + platformOffset, transform.position.z);
+
+            GameObject newPlatform = Instantiate(platformPrefab, platformPosition, Quaternion.identity);
+
+            StartCoroutine(DestroyPlatformAfterTime(newPlatform));
+
+            // Désactiver la création de plateforme après l'action
+            createPlatform = false;
+            canCreatePlatform = false;
+
+        }
+    }
+    private IEnumerator DestroyPlatformAfterTime(GameObject platform)
+    {
+        
+
+        // Attendre pendant platformLifetime secondes
+        yield return new WaitForSeconds(platformLifetime);
+
+        // Détruire la plateforme
+        Destroy(platform);
+        canCreatePlatform = true;
     }
 }
