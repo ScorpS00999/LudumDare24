@@ -13,9 +13,14 @@ public class CollectGlands : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("glands"))
         {
-            collision.gameObject.GetComponent<SpriteRenderer>().sprite = collecteGlands[nbrGlands].sprite;
-            collecteGlands[nbrGlands].color = Color.white;
+            collecteGlands[nbrGlands].sprite = collision.gameObject.GetComponent<SpriteRenderer>().sprite;
+            collecteGlands[nbrGlands].color = collision.gameObject.GetComponent<SpriteRenderer>().color;
+            
+            //a mettre quand sprite finaux
+            //collecteGlands[nbrGlands].color = Color.white;
+            
             nbrGlands++;
+            Destroy(collision.gameObject);
         }
     }
 }
