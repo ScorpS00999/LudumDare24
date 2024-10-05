@@ -8,7 +8,7 @@ public class Debut : MonoBehaviour
     [SerializeField] Image debut;
     Color transparence;
 
-    float timer = 2f;
+    float timer = 3f;
 
     [SerializeField] AnimationCurve fade;
 
@@ -23,7 +23,7 @@ public class Debut : MonoBehaviour
     {
         timer -= Time.deltaTime;
 
-        float pourcentageTransparence = timer / 2f;
+        float pourcentageTransparence = timer / 3f;
         transparence.a = fade.Evaluate(pourcentageTransparence);
         debut.color = transparence;
     }
