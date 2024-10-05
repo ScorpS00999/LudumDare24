@@ -23,12 +23,12 @@ public class EnnemyController : MonoBehaviour
 
     void Patrol()
     {
-        // Si l'ennemi est en mouvement vers la droite
+        // If ennemy go to the right
         if (movingRight)
         {
             transform.Translate(Vector2.right * speed * Time.deltaTime);
 
-            // Si l'ennemi dépasse la distance de patrouille, changer de direction
+            // If ennemy is at patrol limit, change direction
             if (transform.position.x >= startPosition.x + distance)
             {
                 movingRight = false;
@@ -39,7 +39,7 @@ public class EnnemyController : MonoBehaviour
         {
             transform.Translate(Vector2.left * speed * Time.deltaTime);
 
-            // Si l'ennemi revient à sa position de départ, changer de direction
+            //If ennemy is back to his init position, change direction
             if (transform.position.x <= startPosition.x - distance)
             {
                 movingRight = true;

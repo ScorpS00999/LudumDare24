@@ -22,28 +22,37 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "CreatePlatform",
+                    "type": "Button",
+                    "id": "a713e5fd-c97a-41f0-9ad3-6b3c5a85e00c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
                 {
                     "name": "",
                     "id": "ef184fb1-5abb-45b3-b040-c6d64058c2e2",
-                    "path": "",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "New action",
+                    "action": "CreatePlatform",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
                     "id": "644514e4-75d2-4da2-bec4-e36b888a5d0d",
-                    "path": "",
+                    "path": "<Gamepad>/buttonNorth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "New action",
+                    "action": "CreatePlatform",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
