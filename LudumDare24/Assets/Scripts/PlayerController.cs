@@ -7,15 +7,17 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float mSpeed = 0.1f;
     [SerializeField] private float jumpForce = 5f;
+    [SerializeField] private float bounceForce = 5f;
     [SerializeField] private int maxJump = 1;
 
     private int JumpNumber = 0;
 
     private Vector2 mMoveVector;
     private bool jumpPressed = false;
-    private CharacterController mCharacter;
-    [SerializeField]  public LayerMask groundLayer;
-    [SerializeField]  public Transform groundCheck;
+
+    [SerializeField] public LayerMask groundLayer;
+    [SerializeField] public LayerMask mushroomLayer;
+    [SerializeField] public Transform groundCheck;
     public float groundCheckRadius = 0.2f;
     private bool isGrounded = true;
 
@@ -32,7 +34,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnDisable()
     {
-        Destroy(mCharacter);
+        Destroy(rgbd2D);
     }
     #endregion
     private void FixedUpdate()
@@ -49,6 +51,7 @@ public class PlayerController : MonoBehaviour
         {
             JumpNumber = 0;
         }
+        Bounce();
     }
 
     public void ReadMoveInput(InputAction.CallbackContext context)
@@ -65,7 +68,6 @@ public class PlayerController : MonoBehaviour
             {
                 jumpPressed = true;
                 JumpNumber += 1;
-                Debug.Log(JumpNumber);
             }
         }
         else if (context.canceled)
@@ -89,5 +91,17 @@ public class PlayerController : MonoBehaviour
         // Apply jump force if grounded
         rgbd2D.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         jumpPressed = false; 
+    }
+
+    public void Bounce()
+    {
+        bool shouldBounce = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, mushroomLayer);
+
+        if (shouldBounce)
+        {
+            rgbd2D.velocity = new Vector2(rgbd2D.velocity.x, 0f);
+            rgbd2D.AddForce(Vector2.up * bounceForce, ForceMode2D.Impulse);
+            Debug.Log(ForceMode2D.Impulse);
+        }
     }
 }
