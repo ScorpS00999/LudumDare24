@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
 
 
     private CharacterData currentCharacterData;
-    private CharacterDisplay characterDisplay;
+    [SerializeField] private CharacterDisplay characterDisplay;
 
     private string collidedObjectName;
 
