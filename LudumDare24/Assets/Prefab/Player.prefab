@@ -260,10 +260,10 @@ MonoBehaviour:
     m_Bits: 8
   mushroomLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   ennemyLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   groundCheck: {fileID: 3273088245396607243}
   groundCheckRadius: 0.2
   interactionText: {fileID: 0}
