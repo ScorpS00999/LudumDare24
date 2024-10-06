@@ -2,6 +2,7 @@ using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class CameraController : MonoBehaviour
 {
@@ -24,7 +25,11 @@ public class CameraController : MonoBehaviour
     [SerializeField] float duree = 3f;
     [SerializeField] float power = 5f;
 
+    [SerializeField] float vibrationDuration = 2f;
+
     [SerializeField] CinemachineVirtualCamera virtualCamera;
+
+    [SerializeField] float decalageCam = 1.5f;
 
 
     public void shakeCamera()
@@ -38,13 +43,51 @@ public class CameraController : MonoBehaviour
 
         while (temps > 0)
         {
-            transform.localPosition = new Vector2(Random.Range(-1, 1) * power, Random.Range(-1, 1) * power);
+            transform.localPosition = new Vector2(Random.Range(-1, 2) * power, decalageCam);
             temps -= Time.deltaTime;
         
             yield return null;
         }
-        transform.localPosition = Vector3.zero;
+        transform.localPosition = new Vector3(0, decalageCam, 0);
         
         yield return null;
+    }
+
+
+
+    public void shakeVibrate()
+    {
+        StartCoroutine(shakeCam());
+        StartCoroutine(vibrate());
+    }
+
+
+    
+    private IEnumerator vibrate()
+    {
+        var gamepad = Gamepad.current;
+        print("bien rentré dans vibrate");
+
+        float temps = vibrationDuration;
+
+        if (gamepad != null)
+        {
+            while (temps > 0)
+            {
+                gamepad.SetMotorSpeeds(0.5f, 0.5f);  // Lancer la vibration avec 50% de puissance
+                temps -= Time.deltaTime;
+
+                yield return null;
+            }
+            gamepad.SetMotorSpeeds(0, 0);
+
+            yield return null;
+        }
+    }
+
+    private void Start()
+    {
+        shakeVibrate();
+        shakeCamera();
     }
 }
