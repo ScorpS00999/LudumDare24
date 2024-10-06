@@ -13,6 +13,7 @@ public class CharacterDisplay : MonoBehaviour
     {
         if (interactiveCharacters != null && interactiveCharacters.Count > 0)
         {
+            print(interactiveCharacters);
             foreach (CharacterData interactiveCharacter in interactiveCharacters)
             {
                 if (interactiveCharacter != null && interactiveCharacter.characterSprite != null)
@@ -53,8 +54,8 @@ public class CharacterDisplay : MonoBehaviour
                 {
                     print("Test2");
                 }
-                //dialog.text = $"{obj}: {objData.sentences[0]}"; // Affiche la première phrase par exemple
-                //Debug.Log(objData.characterName +" : "+ objData.sentences[0]);
+                dialog.text = $"{obj}: {objData.sentences[0]}"; // Affiche la première phrase par exemple
+                //Debug.Log(objData.characterName + " : " + objData.sentences[0]);
             }
             else
             {
