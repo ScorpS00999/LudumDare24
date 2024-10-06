@@ -42,6 +42,11 @@ public class Bulle : MonoBehaviour
                 player.GetComponent<SpriteRenderer>().enabled = true;
                 player.GetComponent<PlayerController>().enabled = true;
 
+                Transform enfant = player.transform.Find("CameraController");
+                GameObject gameObjectEnfant = enfant.gameObject;
+
+                changementCam.Instance.changeFollow(gameObjectEnfant);
+
                 dansTriger = false;
                 StartCoroutine(retourBulle());
             }
@@ -53,6 +58,11 @@ public class Bulle : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            Transform enfant = this.gameObject.transform.Find("CamFollow");
+            GameObject gameObjectEnfant = enfant.gameObject;
+
+            changementCam.Instance.changeFollow(gameObjectEnfant);
+
             player = collision.gameObject;
 
             player.GetComponent<SpriteRenderer>().enabled = false;
@@ -78,8 +88,8 @@ public class Bulle : MonoBehaviour
     {
         Gizmos.color = Color.green;
         Gizmos.DrawSphere(transform.position, 0.2f);
-        Gizmos.DrawSphere(posTransport, 0.2f);
-        Gizmos.DrawLine(transform.position, posTransport); // Dessiner une ligne entre les deux points
+        Gizmos.DrawSphere(new Vector2(xPosTransport, yPosTransport), 0.2f);
+        Gizmos.DrawLine(transform.position, new Vector2(xPosTransport, yPosTransport)); // Dessiner une ligne entre les deux points
 
         //SceneView.RepaintAll();
     }
