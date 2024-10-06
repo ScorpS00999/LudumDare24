@@ -50,6 +50,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         controls = new PlayerControls();
+        characterDisplay = new CharacterDisplay();
 
         // Find the character object
         Transform childObject = transform.Find("scope");

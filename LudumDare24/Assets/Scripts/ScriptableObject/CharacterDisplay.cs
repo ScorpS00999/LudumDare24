@@ -26,6 +26,7 @@ public class CharacterDisplay : MonoBehaviour
 
                     obj.tag = "interactiv";
                     obj.name = interactiveCharacter.characterName;
+                    print("je suis la " + interactiveCharacter.characterName);
                 }
                 else
                 {
@@ -37,30 +38,43 @@ public class CharacterDisplay : MonoBehaviour
         {
             Debug.LogError("interactiveCharacters is not defined or empty");
         }
+        print("combien " + interactiveCharacters.Count);
+        print("encore " + interactiveCharacters[0].name);
     }
+
+
     public void TriggerDialog(string obj)
     {
         print("Dialog started");
-        foreach (CharacterData objData in interactiveCharacters)
+        if (interactiveCharacters != null)
         {
-            if (objData != null)
+            foreach (CharacterData objData in interactiveCharacters)
             {
-                if(objData.sentences != null)
+                print("cc");
+                if (objData != null)
                 {
-                    print("Test");
+                    if (objData.sentences != null)
+                    {
+                        print("Test");
+                    }
+                    if (objData.characterName == obj)
+                    {
+                        print("Test2");
+                    }
+                    //dialog.text = $"{obj}: {objData.sentences[0]}"; // Affiche la première phrase par exemple
+                    //Debug.Log(objData.characterName +" : "+ objData.sentences[0]);
                 }
-                if(objData.characterName == obj)
+                else
                 {
-                    print("Test2");
+                    Debug.Log("No data found");
                 }
-                //dialog.text = $"{obj}: {objData.sentences[0]}"; // Affiche la première phrase par exemple
-                //Debug.Log(objData.characterName +" : "+ objData.sentences[0]);
-            }
-            else
-            {
-                Debug.Log("No data found");
             }
         }
+        else
+        {
+            print("ta mere");
+        }
+        
     }
 
 }

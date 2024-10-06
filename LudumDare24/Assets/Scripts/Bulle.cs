@@ -69,6 +69,6 @@ public class Bulle : MonoBehaviour
         Gizmos.DrawSphere(posTransport, 0.2f);
         Gizmos.DrawLine(transform.position, posTransport); // Dessiner une ligne entre les deux points
 
-        SceneView.RepaintAll();
+        //SceneView.RepaintAll();
     }
 }
