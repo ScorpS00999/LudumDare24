@@ -43,7 +43,7 @@ public class CameraController : MonoBehaviour
 
         while (temps > 0)
         {
-            transform.position = new Vector2(Random.Range(-1, 1) * power, Random.Range(-1, decalageCam) * power);
+            transform.localPosition = new Vector2(Random.Range(-1, 2) * power, decalageCam);
             temps -= Time.deltaTime;
         
             yield return null;
