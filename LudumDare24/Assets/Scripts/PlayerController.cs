@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
 
 
     private CharacterData currentCharacterData;
-    //[SerializeField] private CharacterDisplay characterDisplay;
+    [SerializeField] private CharacterDisplay characterDisplay;
 
     private string collidedObjectName;
 
@@ -128,13 +128,8 @@ public class PlayerController : MonoBehaviour
         // Lire l'input d'interaction (pressé ou relâché)
         if (context.performed && isInRange) // Check if player is in range
         {
-            if (collidedObjectName != null) { 
-                Debug.Log("Interaction triggered with character: " + collidedObjectName);
-
-                // Trigger dialog with the current character
-                print("Là ça marche");
-                //characterDisplay.TriggerDialog(collidedObjectName);
-                print("Là aussi");
+            if (collidedObjectName != null) {
+                characterDisplay.TriggerDialog();
                 interactionText.gameObject.SetActive(false);
             }
             else
@@ -229,6 +224,11 @@ public class PlayerController : MonoBehaviour
             isInRange = true;
 
             collidedObjectName = collision.gameObject.name;
+
+            characterDisplay = collision.gameObject.GetComponent<CharacterDisplay>();
+
+            characterDisplay.EnleverDialogue();
+
             Debug.Log(collidedObjectName);
             string interactKey = InputControlPath.ToHumanReadableString(controls.Player.Interact.bindings[0].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
             string interactKey2 = InputControlPath.ToHumanReadableString(controls.Player.Interact.bindings[1].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);

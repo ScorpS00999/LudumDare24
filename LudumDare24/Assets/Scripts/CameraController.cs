@@ -96,10 +96,4 @@ public class CameraController : MonoBehaviour
             yield return null;
         }
     }
-
-    private void Start()
-    {
-        shakeVibrate();
-        shakeCamera();
-    }
 }

@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SwitchGame : MonoBehaviour
+public class ValidationZone : MonoBehaviour
 {
-    static SwitchGame instance;
+    static ValidationZone instance;
 
-    public static SwitchGame Instance
+    public static ValidationZone Instance
     {
         get
         {
@@ -31,26 +31,9 @@ public class SwitchGame : MonoBehaviour
         }
     }
 
-
-
-    [SerializeField] GameObject jeuMignon;
-
-    [SerializeField] GameObject jeuCannibal;
-
-    [SerializeField] GameObject murInvisible;
-
-    private void Start()
+    public void Validation()
     {
-        jeuMignon.SetActive(true);
-        jeuCannibal.SetActive(false);
+        CharacterDisplay.indexDia = 1;
     }
 
-    public void finJeu()
-    {
-        murInvisible.SetActive(false);
-
-        jeuMignon.SetActive(false);
-
-        jeuCannibal.SetActive(true);
-    }
 }
