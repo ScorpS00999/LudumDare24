@@ -248,6 +248,7 @@ GameObject:
   - component: {fileID: 2507763710048219468}
   - component: {fileID: 2236465936062267600}
   - component: {fileID: 3435053387740350003}
+  - component: {fileID: 1416223267277132238}
   m_Layer: 0
   m_Name: png
   m_TagString: Untagged
@@ -372,6 +373,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulleDialogue: {fileID: 5639748413007453699}
+--- !u!114 &1416223267277132238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5533475542159876984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa9e7136258eb5d4484eb16914546b67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactiveCharacters: []
+  dialog: {fileID: 9044326516290683451}
 --- !u!1 &5587488102725588688
 GameObject:
   m_ObjectHideFlags: 0
