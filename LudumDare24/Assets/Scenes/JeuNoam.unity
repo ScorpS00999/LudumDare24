@@ -562,15 +562,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1416223267277132238, guid: b7c2e1def4f22354c8eb74bceda35d1b, type: 3}
       propertyPath: interactiveCharacters.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1416223267277132238, guid: b7c2e1def4f22354c8eb74bceda35d1b, type: 3}
       propertyPath: interactiveCharacters.Array.data[0]
       value: 
       objectReference: {fileID: 11400000, guid: 1ecb30c9f6abd954b9ae49008bb12c76, type: 2}
+    - target: {fileID: 1416223267277132238, guid: b7c2e1def4f22354c8eb74bceda35d1b, type: 3}
+      propertyPath: interactiveCharacters.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: d7e89d41987960c4291a93f78ceefcc2, type: 2}
     - target: {fileID: 5533475542159876984, guid: b7c2e1def4f22354c8eb74bceda35d1b, type: 3}
       propertyPath: m_Name
       value: png
+      objectReference: {fileID: 0}
+    - target: {fileID: 5533475542159876984, guid: b7c2e1def4f22354c8eb74bceda35d1b, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 5543291121251651389, guid: b7c2e1def4f22354c8eb74bceda35d1b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -614,7 +622,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5587488102725588688, guid: b7c2e1def4f22354c8eb74bceda35d1b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9044326516290683451, guid: b7c2e1def4f22354c8eb74bceda35d1b, type: 3}
+      propertyPath: m_text
+      value: "Mon p\xE8re le chauve"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

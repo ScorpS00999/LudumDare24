@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
 
 
     private CharacterData currentCharacterData;
-    [SerializeField] private CharacterDisplay characterDisplay;
+    //[SerializeField] private CharacterDisplay characterDisplay;
 
     private string collidedObjectName;
 
@@ -50,7 +50,6 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         controls = new PlayerControls();
-        characterDisplay = new CharacterDisplay();
 
         // Find the character object
         Transform childObject = transform.Find("scope");
@@ -134,7 +133,7 @@ public class PlayerController : MonoBehaviour
 
                 // Trigger dialog with the current character
                 print("Là ça marche");
-                characterDisplay.TriggerDialog(collidedObjectName);
+                //characterDisplay.TriggerDialog(collidedObjectName);
                 print("Là aussi");
                 interactionText.gameObject.SetActive(false);
             }
