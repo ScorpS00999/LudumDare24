@@ -426,9 +426,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20af3ad867325da4ea33d318490fcfe0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duree: 3
+  duree: 1.2
   power: 5
-  vibrationDuration: 2
+  vibrationDuration: 1
   virtualCamera: {fileID: 1089119323}
   decalageCam: 1.5
 --- !u!1001 &900488374
