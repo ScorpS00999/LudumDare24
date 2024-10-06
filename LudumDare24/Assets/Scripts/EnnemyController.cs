@@ -62,6 +62,6 @@ public class EnnemyController : MonoBehaviour
         Debug.Log("Ennemy Died!");
         Destroy(gameObject);
 
-        this.gameObject.SendMessage("ValidationGlands");
+        ValidationZone.Instance.Validation();
     }
 }

@@ -4,13 +4,36 @@ using UnityEngine;
 
 public class ValidationZone : MonoBehaviour
 {
-    void ValidationGlands()
+    static ValidationZone instance;
+
+    public static ValidationZone Instance
     {
-        this.gameObject.SendMessage("changerIndex", 1);
+        get
+        {
+            // Si l'instance n'existe pas encore, on la crée
+            if (instance == null)
+            {
+                return null;
+            }
+            return instance;
+        }
     }
 
-    void ValidationEcurieul()
+    private void Awake()
     {
-        this.gameObject.SendMessage("changerIndex", 1);
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else if (instance != this)
+        {
+            Destroy(gameObject);
+        }
     }
+
+    public void Validation()
+    {
+        CharacterDisplay.indexDia = 1;
+    }
+
 }

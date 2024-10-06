@@ -164,7 +164,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -1.821, z: 0}
-  m_LocalScale: {x: 1, y: 1.9625, z: 1}
+  m_LocalScale: {x: 0.959, y: 1.9625, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3273088245396607243}
@@ -299,11 +299,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mSpeed: 0.1
-  jumpForce: 7
-  bounceForce: 5
+  jumpForce: 8
+  bounceForce: 10
   maxJump: 2
   attackPoints: 25
-  platformPrefab: {fileID: 0}
+  platformPrefab: {fileID: 9180661833669409020, guid: 30a48c3a7a2692141880f51152ba64b8, type: 3}
   platformOffset: 1.5
   platformLifetime: 5
   groundLayer:
@@ -393,7 +393,19 @@ MonoBehaviour:
     m_ActionId: a713e5fd-c97a-41f0-9ad3-6b3c5a85e00c
     m_ActionName: Player/CreatePlatform[/Keyboard/e,/XInputControllerWindows/buttonNorth]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6659350961316258280}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: ReadInteractInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 0f723925-6463-4c20-b8c5-ab0b526cc3f8
     m_ActionName: Player/Interact[/Keyboard/f]
   m_NeverAutoSwitchControlSchemes: 0
@@ -446,6 +458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 717ebb7eca0c7e346a419aa847ecde33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  allGlands: {fileID: 0}
   collecteGlands:
   - {fileID: 0}
   - {fileID: 0}
