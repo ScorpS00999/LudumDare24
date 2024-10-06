@@ -252,15 +252,18 @@ MonoBehaviour:
   bounceForce: 5
   maxJump: 2
   attackPoints: 25
+  platformPrefab: {fileID: 0}
+  platformOffset: 1.5
+  platformLifetime: 5
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
   mushroomLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   ennemyLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   groundCheck: {fileID: 3273088245396607243}
   groundCheckRadius: 0.2
 --- !u!114 &5391985612128256887
