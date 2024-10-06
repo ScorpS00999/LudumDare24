@@ -9,6 +9,8 @@ public class CollectGlands : MonoBehaviour
 
     [SerializeField] private List<Image> collecteGlands = new List<Image>();
 
+    [SerializeField] Collider2D colliderZone;
+
     private int nbrGlands = 0;
 
     bool glandOk = false;
@@ -41,6 +43,7 @@ public class CollectGlands : MonoBehaviour
             nbrGlands++;
             if (nbrGlands >= 3)
             {
+                colliderZone.enabled = false;
                 ValidationZone.Instance.Validation();
             }
             print(nbrGlands);

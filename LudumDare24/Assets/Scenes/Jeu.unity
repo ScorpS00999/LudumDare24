@@ -272,6 +272,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 349575160}
     - target: {fileID: 8170963859998612166, guid: 852dade6de5a85748896c3fd35cf5f21, type: 3}
+      propertyPath: colliderZone
+      value: 
+      objectReference: {fileID: 752265303}
+    - target: {fileID: 8170963859998612166, guid: 852dade6de5a85748896c3fd35cf5f21, type: 3}
       propertyPath: collecteGlands.Array.data[0]
       value: 
       objectReference: {fileID: 861176832}
@@ -65037,6 +65041,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c14a263bf76f6043a451000216b6444, type: 3}
+--- !u!61 &752265303 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 27641869913943053, guid: b7c2e1def4f22354c8eb74bceda35d1b, type: 3}
+  m_PrefabInstance: {fileID: 665863013}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &778148928 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8306129249814651056, guid: fd9e51b75c3e64e4a98f043738fffcf5, type: 3}
