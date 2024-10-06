@@ -22,10 +22,10 @@ public class CameraController : MonoBehaviour
     }
 
 
-    [SerializeField] float duree = 3f;
+    [SerializeField] float duree = 1.5f;
     [SerializeField] float power = 5f;
 
-    [SerializeField] float vibrationDuration = 2f;
+    [SerializeField] float vibrationDuration = 1f;
 
     [SerializeField] CinemachineVirtualCamera virtualCamera;
 
