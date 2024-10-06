@@ -15,6 +15,8 @@ public class ActivationMur : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        this.gameObject.SendMessage("changerIndex", 0);
+
         murAvant.SetActive(true);
         murApres.SetActive(true);
     }

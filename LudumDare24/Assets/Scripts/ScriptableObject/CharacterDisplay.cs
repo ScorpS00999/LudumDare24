@@ -2,15 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.Linq;
 
 public class CharacterDisplay : MonoBehaviour
 {
     public List<CharacterData> interactiveCharacters;
     [SerializeField] TextMeshProUGUI dialog;
 
-    void Start()
+    public List<string> dialogues;
 
+    int indexDia = 0;
+
+    void Start()
     {
+        indexDia = 0;
+
+        if (dialogues.Count == 1)
+        {
+            dialogues.Add("");
+        }
+
         if (interactiveCharacters != null && interactiveCharacters.Count > 0)
         {
             print(interactiveCharacters);
@@ -39,6 +50,9 @@ public class CharacterDisplay : MonoBehaviour
             Debug.LogError("interactiveCharacters is not defined or empty");
         }
     }
+
+
+
     public void TriggerDialog(string obj)
     {
         print("Dialog started");
@@ -62,6 +76,13 @@ public class CharacterDisplay : MonoBehaviour
                 Debug.Log("No data found");
             }
         }
+    }
+
+
+    private int changerIndex(int index)
+    {
+        indexDia = index;
+        return indexDia;
     }
 
 }

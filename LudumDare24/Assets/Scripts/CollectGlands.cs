@@ -22,5 +22,9 @@ public class CollectGlands : MonoBehaviour
             nbrGlands++;
             Destroy(collision.gameObject);
         }
+        if (nbrGlands >= 4)
+        {
+            this.gameObject.SendMessage("ValidationGlands");
+        }
     }
 }
