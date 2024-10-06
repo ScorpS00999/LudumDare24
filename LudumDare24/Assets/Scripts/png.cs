@@ -20,6 +20,4 @@ public class png : MonoBehaviour
     {
         bulleDialogue.SetActive(false);
     }
-
-
 }

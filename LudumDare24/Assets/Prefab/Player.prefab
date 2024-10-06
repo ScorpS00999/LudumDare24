@@ -252,6 +252,9 @@ MonoBehaviour:
   bounceForce: 5
   maxJump: 2
   attackPoints: 25
+  platformPrefab: {fileID: 0}
+  platformOffset: 1.5
+  platformLifetime: 5
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
@@ -263,6 +266,7 @@ MonoBehaviour:
     m_Bits: 0
   groundCheck: {fileID: 3273088245396607243}
   groundCheckRadius: 0.2
+  interactionText: {fileID: 0}
 --- !u!114 &5391985612128256887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -336,6 +340,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: a713e5fd-c97a-41f0-9ad3-6b3c5a85e00c
     m_ActionName: Player/CreatePlatform[/Keyboard/e,/XInputControllerWindows/buttonNorth]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6659350961316258280}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: ReadInteractInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 0f723925-6463-4c20-b8c5-ab0b526cc3f8
+    m_ActionName: Player/Interact[/Keyboard/f]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

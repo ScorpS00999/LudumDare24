@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
@@ -33,14 +34,38 @@ public class PlayerController : MonoBehaviour
     private bool canCreatePlatform = true;
 
     private Rigidbody2D rgbd2D;
+    private PlayerControls controls;
 
+    [Header("Interaction UI")]
+    [SerializeField] public TextMeshProUGUI interactionText;
+    private bool isInRange = false;
+
+
+    private CharacterData currentCharacterData;
+    [SerializeField] private CharacterDisplay characterDisplay;
+
+    private string collidedObjectName;
 
     #region Initialization
     private void Awake()
     {
+        controls = new PlayerControls();
+        characterDisplay = new CharacterDisplay();
+
         // Find the character object
         Transform childObject = transform.Find("scope");
         rgbd2D = GetComponent<Rigidbody2D>();
+        interactionText.gameObject.SetActive(false);
+    }
+
+    private void OnEnable()
+    {
+        controls.Player.Enable();
+    }
+
+    private void OnDisable()
+    {
+        controls.Player.Disable();
     }
 
     #endregion
@@ -97,6 +122,27 @@ public class PlayerController : MonoBehaviour
         else if (context.canceled)
         {
             createPlatform = false;
+        }
+    }
+    public void ReadInteractInput(InputAction.CallbackContext context)
+    {
+        // Lire l'input d'interaction (pressé ou relâché)
+        if (context.performed && isInRange) // Check if player is in range
+        {
+            if (collidedObjectName != null) { 
+                Debug.Log("Interaction triggered with character: " + collidedObjectName);
+
+                // Trigger dialog with the current character
+                print("Là ça marche");
+                characterDisplay.TriggerDialog(collidedObjectName);
+                print("Là aussi");
+                interactionText.gameObject.SetActive(false);
+            }
+            else
+            {
+                Debug.Log("CharacterData is empty");
+            }
+            
         }
     }
     #endregion
@@ -169,13 +215,36 @@ public class PlayerController : MonoBehaviour
     }
     private IEnumerator DestroyPlatformAfterTime(GameObject platform)
     {
-        
-
         // Attendre pendant platformLifetime secondes
         yield return new WaitForSeconds(platformLifetime);
 
         // Détruire la plateforme
         Destroy(platform);
         canCreatePlatform = true;
+    }
+    // Gérer la détection des objets interactifs
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("interactiv"))
+        {
+            isInRange = true;
+
+            collidedObjectName = collision.gameObject.name;
+            Debug.Log(collidedObjectName);
+            string interactKey = InputControlPath.ToHumanReadableString(controls.Player.Interact.bindings[0].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
+            string interactKey2 = InputControlPath.ToHumanReadableString(controls.Player.Interact.bindings[1].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
+            interactionText.text = $"Press {interactKey} or {interactKey2} to interact";
+            interactionText.gameObject.SetActive(true);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("interactiv"))
+        {
+            isInRange = false;
+            interactionText.gameObject.SetActive(false);
+            collidedObjectName = null;
+        }
     }
 }
