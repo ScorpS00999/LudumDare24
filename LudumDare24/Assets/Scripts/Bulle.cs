@@ -33,9 +33,15 @@ public class Bulle : MonoBehaviour
             if (Vector2.Distance(transform.position, posTransport) < 0.02f)
             {
                 this.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+                this.gameObject.GetComponent<Collider2D>().enabled = false;
                 transform.position = posDebut;
                 player.transform.position = posTransport;
-                player.SetActive(true);
+
+                //player.SetActive(true);
+
+                player.GetComponent<SpriteRenderer>().enabled = true;
+                player.GetComponent<PlayerController>().enabled = true;
+
                 dansTriger = false;
                 StartCoroutine(retourBulle());
             }
@@ -47,9 +53,14 @@ public class Bulle : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            print("et coucou");
             player = collision.gameObject;
-            collision.gameObject.SetActive(false);
+
+            player.GetComponent<SpriteRenderer>().enabled = false;
+            player.GetComponent<PlayerController>().enabled = false;
+
+            //player.SetActive(false);
+
+
             dansTriger = true;
         }
     }
@@ -60,6 +71,7 @@ public class Bulle : MonoBehaviour
         //peut etre plus tard remplacer par time.deltaTime ?
         yield return new WaitForSeconds(5);
         this.gameObject.GetComponent<SpriteRenderer>().enabled = true;
+        this.gameObject.GetComponent<Collider2D>().enabled = true;
     }
 
     void OnDrawGizmos()
