@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class Bulle : MonoBehaviour
@@ -61,11 +62,13 @@ public class Bulle : MonoBehaviour
         this.gameObject.GetComponent<SpriteRenderer>().enabled = true;
     }
 
-    private void OnDrawGizmos()
+    void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
         Gizmos.DrawSphere(transform.position, 0.2f);
         Gizmos.DrawSphere(posTransport, 0.2f);
         Gizmos.DrawLine(transform.position, posTransport); // Dessiner une ligne entre les deux points
+
+        SceneView.RepaintAll();
     }
 }
