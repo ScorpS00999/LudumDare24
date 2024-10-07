@@ -47,13 +47,14 @@ public class PlayerController : MonoBehaviour
 
     private string collidedObjectName;
 
+    [SerializeField] public GameObject mushroom;
+
     #region Initialization
     private void Awake()
     {
         controls = new PlayerControls();
 
         // Find the character object
-        Transform childObject = transform.Find("scope");
         rgbd2D = GetComponent<Rigidbody2D>();
         interactionText.gameObject.SetActive(false);
     }
@@ -75,13 +76,13 @@ public class PlayerController : MonoBehaviour
     {
         Move();
 
+        // Check if player is on the ground
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
         if (jumpPressed && isGrounded)
         {
            Jump();
         }
-        // Check if player is on the ground
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
-        if (isGrounded )
+        if (isGrounded)
         {
             JumpNumber = 0;
             hasAttackedEnnemy = false;
@@ -104,6 +105,7 @@ public class PlayerController : MonoBehaviour
         // Read jump input (pressed or released)
         if (context.performed)
         {
+
             if (JumpNumber < maxJump)
             {
                 jumpPressed = true;
@@ -177,12 +179,23 @@ public class PlayerController : MonoBehaviour
 
         if (shouldBounce)
         {
-            m_Animator.SetBool("hasBounce", true);
+            Animator mushroomAnimator = mushroom.GetComponent<Animator>();
 
-            rgbd2D.velocity = new Vector2(rgbd2D.velocity.x, 0f);
-            rgbd2D.AddForce(Vector2.up * bounceForce, ForceMode2D.Impulse);
+            if (mushroomAnimator != null)
+            {
+                // Activer l'animation du rebond sur le champignon
+                mushroomAnimator.SetBool("hasBounce", true);
 
-            m_Animator.SetBool("hasBounce", false);
+                // Réinitialise la vitesse verticale à 0 avant d'ajouter la force du rebond
+                rgbd2D.velocity = new Vector2(rgbd2D.velocity.x, 0f);
+                rgbd2D.AddForce(Vector2.up * bounceForce, ForceMode2D.Impulse);
+
+                mushroomAnimator.SetBool("hasBounce", false);
+            }
+            else
+            {
+                Debug.LogWarning("Animator non trouvé sur l'objet Mushroom");
+            }
         }
     }
 

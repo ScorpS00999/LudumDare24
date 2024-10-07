@@ -140,7 +140,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5463547195532114256, guid: 852dade6de5a85748896c3fd35cf5f21, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.821
+      value: -2.652
       objectReference: {fileID: 0}
     - target: {fileID: 5463547195532114256, guid: 852dade6de5a85748896c3fd35cf5f21, type: 3}
       propertyPath: m_LocalPosition.z
@@ -174,6 +174,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6659350961316258280, guid: 852dade6de5a85748896c3fd35cf5f21, type: 3}
+      propertyPath: mushroom
+      value: 
+      objectReference: {fileID: 7910078633495052936, guid: a5831d890df6777468658bc1e62f86a9, type: 3}
     - target: {fileID: 6659350961316258280, guid: 852dade6de5a85748896c3fd35cf5f21, type: 3}
       propertyPath: interactionText
       value: 
@@ -568,6 +572,11 @@ BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 27641869913943053, guid: b7c2e1def4f22354c8eb74bceda35d1b, type: 3}
   m_PrefabInstance: {fileID: 2063399942}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &744845487 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5639748413007453699, guid: b7c2e1def4f22354c8eb74bceda35d1b, type: 3}
+  m_PrefabInstance: {fileID: 2063399942}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &826790717
 GameObject:
   m_ObjectHideFlags: 0
@@ -670,6 +679,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1001662821 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9044326516290683451, guid: b7c2e1def4f22354c8eb74bceda35d1b, type: 3}
+  m_PrefabInstance: {fileID: 2063399942}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1299491140
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -732,6 +752,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 718638285041673651, guid: 05f31016485a4064f8e9df432bc7c044, type: 3}
   m_PrefabInstance: {fileID: 1299491140}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1894217510 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8170963859998612166, guid: 852dade6de5a85748896c3fd35cf5f21, type: 3}
+  m_PrefabInstance: {fileID: 34958888}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 717ebb7eca0c7e346a419aa847ecde33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2048437110
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -798,9 +829,21 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1416223267277132238, guid: b7c2e1def4f22354c8eb74bceda35d1b, type: 3}
+      propertyPath: collect
+      value: 
+      objectReference: {fileID: 1894217510}
+    - target: {fileID: 1416223267277132238, guid: b7c2e1def4f22354c8eb74bceda35d1b, type: 3}
       propertyPath: pngPrefab
       value: 
       objectReference: {fileID: 5533475542159876984, guid: b7c2e1def4f22354c8eb74bceda35d1b, type: 3}
+    - target: {fileID: 1416223267277132238, guid: b7c2e1def4f22354c8eb74bceda35d1b, type: 3}
+      propertyPath: bulleDialogue
+      value: 
+      objectReference: {fileID: 744845487}
+    - target: {fileID: 1416223267277132238, guid: b7c2e1def4f22354c8eb74bceda35d1b, type: 3}
+      propertyPath: emplacementDia
+      value: 
+      objectReference: {fileID: 1001662821}
     - target: {fileID: 1416223267277132238, guid: b7c2e1def4f22354c8eb74bceda35d1b, type: 3}
       propertyPath: interactiveCharacters.Array.size
       value: 2
@@ -863,7 +906,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5587488102725588688, guid: b7c2e1def4f22354c8eb74bceda35d1b, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9044326516290683451, guid: b7c2e1def4f22354c8eb74bceda35d1b, type: 3}
       propertyPath: m_text
