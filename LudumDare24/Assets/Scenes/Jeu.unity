@@ -132,7 +132,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 109052048008220771, guid: 2c14a263bf76f6043a451000216b6444, type: 3}
       propertyPath: m_Name
-      value: champi
+      value: chamiManger
+      objectReference: {fileID: 0}
+    - target: {fileID: 109052048008220771, guid: 2c14a263bf76f6043a451000216b6444, type: 3}
+      propertyPath: m_TagString
+      value: interactiv
       objectReference: {fileID: 0}
     - target: {fileID: 4078703270512787067, guid: 2c14a263bf76f6043a451000216b6444, type: 3}
       propertyPath: m_LocalPosition.x
@@ -65947,7 +65951,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1275351234
 Transform:
   m_ObjectHideFlags: 0
@@ -66029,6 +66033,10 @@ PrefabInstance:
     - target: {fileID: 3581904731799665239, guid: fd9e51b75c3e64e4a98f043738fffcf5, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 3581904731799665239, guid: fd9e51b75c3e64e4a98f043738fffcf5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5655404673932698208, guid: fd9e51b75c3e64e4a98f043738fffcf5, type: 3}
       propertyPath: m_AnchorMax.y
@@ -66361,7 +66369,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 109052048008220771, guid: 2c14a263bf76f6043a451000216b6444, type: 3}
       propertyPath: m_Name
-      value: champi (2)
+      value: champiManger2
+      objectReference: {fileID: 0}
+    - target: {fileID: 109052048008220771, guid: 2c14a263bf76f6043a451000216b6444, type: 3}
+      propertyPath: m_TagString
+      value: interactiv
       objectReference: {fileID: 0}
     - target: {fileID: 4078703270512787067, guid: 2c14a263bf76f6043a451000216b6444, type: 3}
       propertyPath: m_LocalPosition.x
@@ -66424,6 +66436,10 @@ PrefabInstance:
     - target: {fileID: 109052048008220771, guid: 2c14a263bf76f6043a451000216b6444, type: 3}
       propertyPath: m_Name
       value: champi (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 109052048008220771, guid: 2c14a263bf76f6043a451000216b6444, type: 3}
+      propertyPath: m_TagString
+      value: interactiv
       objectReference: {fileID: 0}
     - target: {fileID: 4078703270512787067, guid: 2c14a263bf76f6043a451000216b6444, type: 3}
       propertyPath: m_LocalPosition.x
@@ -67046,8 +67062,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 8.401794, y: -13.302887}
+  m_SizeDelta: {x: 198.8427, y: 183.4395}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2093244300 stripped
 GameObject:

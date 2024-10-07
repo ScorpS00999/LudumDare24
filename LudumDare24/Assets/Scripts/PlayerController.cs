@@ -44,6 +44,7 @@ public class PlayerController : MonoBehaviour
 
     private CharacterData currentCharacterData;
     [SerializeField] private CharacterDisplay characterDisplay;
+    MangerChampi mangeChampi;
 
     private string collidedObjectName;
 
@@ -135,7 +136,16 @@ public class PlayerController : MonoBehaviour
         if (context.performed && isInRange) // Check if player is in range
         {
             if (collidedObjectName != null) {
-                characterDisplay.TriggerDialog();
+                if (characterDisplay != null)
+                {
+                    print("oo");
+                    characterDisplay.TriggerDialog();
+                }
+                else if (mangeChampi != null)
+                {
+                    print("nique ta mere et ton pere");
+                    mangeChampi.Manger();
+                }
                 interactionText.gameObject.SetActive(false);
             }
             else
@@ -243,8 +253,12 @@ public class PlayerController : MonoBehaviour
             collidedObjectName = collision.gameObject.name;
 
             characterDisplay = collision.gameObject.GetComponent<CharacterDisplay>();
+            mangeChampi = collision.gameObject.GetComponent<MangerChampi>();
 
-            characterDisplay.EnleverDialogue();
+            if (characterDisplay != null)
+            {
+                characterDisplay.EnleverDialogue();
+            }
 
             Debug.Log(collidedObjectName);
             string interactKey = InputControlPath.ToHumanReadableString(controls.Player.Interact.bindings[0].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
