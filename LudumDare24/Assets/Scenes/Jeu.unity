@@ -210,6 +210,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8582120727700056504, guid: 2c14a263bf76f6043a451000216b6444, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2130086569}
+    - target: {fileID: 8582120727700056504, guid: 2c14a263bf76f6043a451000216b6444, type: 3}
+      propertyPath: cameraProcess
+      value: 
+      objectReference: {fileID: 2061025734}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -308,6 +316,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8582120727700056504, guid: 2c14a263bf76f6043a451000216b6444, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2130086569}
+    - target: {fileID: 8582120727700056504, guid: 2c14a263bf76f6043a451000216b6444, type: 3}
+      propertyPath: cameraProcess
+      value: 
+      objectReference: {fileID: 2061025734}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -85590,6 +85606,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8582120727700056504, guid: 2c14a263bf76f6043a451000216b6444, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2130086569}
+    - target: {fileID: 8582120727700056504, guid: 2c14a263bf76f6043a451000216b6444, type: 3}
+      propertyPath: cameraProcess
+      value: 
+      objectReference: {fileID: 2061025734}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -85688,6 +85712,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8582120727700056504, guid: 2c14a263bf76f6043a451000216b6444, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2130086569}
+    - target: {fileID: 8582120727700056504, guid: 2c14a263bf76f6043a451000216b6444, type: 3}
+      propertyPath: cameraProcess
+      value: 
+      objectReference: {fileID: 2061025734}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -86562,7 +86594,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2088632528
 MonoBehaviour:
   m_ObjectHideFlags: 0

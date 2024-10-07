@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 
 public class MangerChampi : MonoBehaviour
@@ -26,6 +27,15 @@ public class MangerChampi : MonoBehaviour
     //    }
     //}
 
+    [SerializeField] private GameObject player;
+    private Animator playerAnimator;
+    
+    public void Start()
+    {
+        playerAnimator = player.GetComponent<Animator>();
+
+    }
+
     public void Manger(string name)
     {
         //play anim
@@ -33,7 +43,7 @@ public class MangerChampi : MonoBehaviour
         if (name == "Champi1")
         {
             //play animation
-            SceneManager.LoadScene("Menu");
+            playerAnimator.SetBool("isMutating", true);
         }
     }
 }

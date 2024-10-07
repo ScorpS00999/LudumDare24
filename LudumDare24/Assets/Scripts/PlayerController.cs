@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
 using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 
 public class PlayerController : MonoBehaviour
 {
@@ -147,7 +148,7 @@ public class PlayerController : MonoBehaviour
                 }
                 else if (mangeChampi != null)
                 {
-                    mangeChampi.Manger();
+                    mangeChampi.Manger(mangeChampi.gameObject.name);
                     m_Animator.SetBool("isEating", true);
                 }
                 interactionText.gameObject.SetActive(false);
