@@ -151,7 +151,7 @@ public class PlayerController : MonoBehaviour
                 else if (mangeChampi != null)
                 {
                     print("nique ta mere et ton pere");
-                    mangeChampi.Manger();
+                    mangeChampi.Manger(mangeChampi.gameObject.name);
                 }
                 interactionText.gameObject.SetActive(false);
             }
@@ -295,6 +295,7 @@ public class PlayerController : MonoBehaviour
             interactionText.text = $"Press {interactKey} or {interactKey2} to interact";
             interactionText.gameObject.SetActive(true);
         }
+        print("cco c'ets encore mo");
     }
 
     private void OnTriggerExit2D(Collider2D collision)
