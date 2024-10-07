@@ -295,6 +295,7 @@ public class PlayerController : MonoBehaviour
             interactionText.text = $"Press {interactKey} or {interactKey2} to interact";
             interactionText.gameObject.SetActive(true);
         }
+        print("cco c'ets encore mo");
     }
 
     private void OnTriggerExit2D(Collider2D collision)
