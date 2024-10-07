@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
+using System.Runtime.CompilerServices;
 
 public class PlayerController : MonoBehaviour
 {
@@ -44,10 +45,12 @@ public class PlayerController : MonoBehaviour
 
     private CharacterData currentCharacterData;
     [SerializeField] private CharacterDisplay characterDisplay;
+    MangerChampi mangeChampi;
 
     private string collidedObjectName;
 
     [SerializeField] public GameObject mushroom;
+    private SpriteRenderer spriteRenderer;
 
     #region Initialization
     private void Awake()
@@ -57,6 +60,7 @@ public class PlayerController : MonoBehaviour
         // Find the character object
         rgbd2D = GetComponent<Rigidbody2D>();
         interactionText.gameObject.SetActive(false);
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void OnEnable()
@@ -74,6 +78,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        print(m_Animator.GetBool("isOnAir"));
         Move();
 
         // Check if player is on the ground
@@ -87,6 +92,7 @@ public class PlayerController : MonoBehaviour
             JumpNumber = 0;
             hasAttackedEnnemy = false;
             m_Animator.SetBool("isJumpin", false);
+            m_Animator.SetBool("isOnAir", false);
 
         }
         Bounce();
@@ -137,7 +143,16 @@ public class PlayerController : MonoBehaviour
         if (context.performed && isInRange) // Check if player is in range
         {
             if (collidedObjectName != null) {
-                characterDisplay.TriggerDialog();
+                if (characterDisplay != null)
+                {
+                    print("oo");
+                    characterDisplay.TriggerDialog();
+                }
+                else if (mangeChampi != null)
+                {
+                    print("nique ta mere et ton pere");
+                    mangeChampi.Manger();
+                }
                 interactionText.gameObject.SetActive(false);
             }
             else
@@ -157,6 +172,14 @@ public class PlayerController : MonoBehaviour
         if (direction.magnitude >= 1.0f)
         {
             rgbd2D.position += direction * mSpeed;
+            if(direction.x < 0)
+            {
+                spriteRenderer.flipX = true;
+            }
+            else if(direction.x > 0)
+            {
+                spriteRenderer.flipX = false;
+            }
             m_Animator.SetBool("isWalkin", true);
         }
         else
@@ -168,9 +191,11 @@ public class PlayerController : MonoBehaviour
     public void Jump()
     {
         // Apply jump force if grounded
+        m_Animator.SetBool("isJumpin", false);
         rgbd2D.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         jumpPressed = false;
-        m_Animator.SetBool("isJumpin", false);
+        m_Animator.SetBool("isOnAir", true);
+
     }
 
     public void Bounce()
@@ -214,7 +239,7 @@ public class PlayerController : MonoBehaviour
                 ennemy.TakeDamage(attackPoints);
                 rgbd2D.velocity = new Vector2(rgbd2D.velocity.x, 0f);
                 rgbd2D.AddForce(Vector2.up * bounceForce, ForceMode2D.Impulse);
-                Debug.Log("Ennemy Attacked! " + attackPoints + " points de vie retirés.");
+
                 hasAttackedEnnemy = true;
             }
         }
@@ -256,8 +281,13 @@ public class PlayerController : MonoBehaviour
             collidedObjectName = collision.gameObject.name;
 
             characterDisplay = collision.gameObject.GetComponent<CharacterDisplay>();
+            mangeChampi = collision.gameObject.GetComponent<MangerChampi>();
 
-            characterDisplay.EnleverDialogue();
+            if (characterDisplay != null)
+            {
+                print("je suis la ");
+                characterDisplay.EnleverDialogue();
+            }
 
             Debug.Log(collidedObjectName);
             string interactKey = InputControlPath.ToHumanReadableString(controls.Player.Interact.bindings[0].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
