@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float bounceForce = 5f;
     [SerializeField] private int maxJump = 1;
     [SerializeField] private int attackPoints = 25;
+    private Animator m_Animator;
 
     private int JumpNumber = 0;
 
@@ -60,6 +61,7 @@ public class PlayerController : MonoBehaviour
     private void OnEnable()
     {
         controls.Player.Enable();
+        m_Animator = gameObject.GetComponent<Animator>();
     }
 
     private void OnDisable()
@@ -83,6 +85,8 @@ public class PlayerController : MonoBehaviour
         {
             JumpNumber = 0;
             hasAttackedEnnemy = false;
+            m_Animator.SetBool("isJumpin", false);
+
         }
         Bounce();
         JumpOnEnnemy();
@@ -149,14 +153,20 @@ public class PlayerController : MonoBehaviour
         if (direction.magnitude >= 1.0f)
         {
             rgbd2D.position += direction * mSpeed;
+            m_Animator.SetBool("isWalkin", true);
+        }
+        else
+        {
+            m_Animator.SetBool("isWalkin", false);
         }
     }
 
     public void Jump()
     {
         // Apply jump force if grounded
+        m_Animator.SetBool("isJumpin", true);
         rgbd2D.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-        jumpPressed = false; 
+        jumpPressed = false;
     }
 
     public void Bounce()
