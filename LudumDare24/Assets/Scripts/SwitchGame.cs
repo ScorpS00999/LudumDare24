@@ -40,8 +40,15 @@ public class SwitchGame : MonoBehaviour
 
     [SerializeField] GameObject murInvisible;
 
+    [SerializeField] AudioClip audioJour;
+    [SerializeField] AudioClip audioNuit;
+
+    [SerializeField] ChangementSon changeSon;
+
+
     private void Start()
     {
+        
         jeuMignon.SetActive(true);
         jeuCannibal.SetActive(false);
 
@@ -52,10 +59,13 @@ public class SwitchGame : MonoBehaviour
 
         timeStart = timer;
         timeEnd = timer;
+
+        changeSon.changementSon(audioJour);
     }
 
     public void finJeu()
     {
+        print("uuuuuuuuuuuuuuuuu");
         StartCoroutine(changer());
         
     }
@@ -109,9 +119,13 @@ public class SwitchGame : MonoBehaviour
 
     IEnumerator changer()
     {
+        yield return new WaitForSeconds(0.5f);
         CameraController.Instance.shakeVibrate();
         startTransi = true;
         yield return new WaitForSeconds(timer);
+
+        changeSon.changementSon(audioNuit);
+
         murInvisible.SetActive(false);
 
         jeuMignon.SetActive(false);

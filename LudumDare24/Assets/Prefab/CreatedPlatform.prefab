@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2639762016983766911}
   - component: {fileID: 7109197140412811024}
   - component: {fileID: 5705079588176424963}
+  - component: {fileID: 7749827229219832673}
   m_Layer: 3
   m_Name: CreatedPlatform
   m_TagString: Untagged
@@ -170,3 +171,22 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!251 &7749827229219832673
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9180661833669409020}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
