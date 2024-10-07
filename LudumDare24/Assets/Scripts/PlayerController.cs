@@ -78,7 +78,6 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        print(m_Animator.GetBool("isOnAir"));
         Move();
 
         // Check if player is on the ground
@@ -92,7 +91,6 @@ public class PlayerController : MonoBehaviour
             m_Animator.SetBool("isJumpin", false);
             JumpNumber = 0;
             hasAttackedEnnemy = false;
-            m_Animator.SetBool("isOnAir", false);
 
         }
         Bounce();
@@ -139,19 +137,18 @@ public class PlayerController : MonoBehaviour
     }
     public void ReadInteractInput(InputAction.CallbackContext context)
     {
-        // Lire l'input d'interaction (pressé ou relâché)
+        // Lire l'input d'interaction (pressï¿½ ou relï¿½chï¿½)
         if (context.performed && isInRange) // Check if player is in range
         {
             if (collidedObjectName != null) {
                 if (characterDisplay != null)
                 {
-                    print("oo");
                     characterDisplay.TriggerDialog();
                 }
                 else if (mangeChampi != null)
                 {
-                    print("nique ta mere et ton pere");
-                    mangeChampi.Manger(mangeChampi.gameObject.name);
+                    mangeChampi.Manger();
+                    m_Animator.SetBool("isEating", true);
                 }
                 interactionText.gameObject.SetActive(false);
             }
@@ -190,12 +187,10 @@ public class PlayerController : MonoBehaviour
 
     public void Jump()
     {
-        m_Animator.SetBool("isJumpin", false);
         // Apply jump force if grounded
         rgbd2D.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         jumpPressed = false;
-        m_Animator.SetBool("isOnAir", true);
-
+        
     }
 
     public void Bounce()
@@ -211,7 +206,7 @@ public class PlayerController : MonoBehaviour
                 // Activer l'animation du rebond sur le champignon
                 mushroomAnimator.SetBool("hasBounce", true);
 
-                // Réinitialise la vitesse verticale à 0 avant d'ajouter la force du rebond
+                // Rï¿½initialise la vitesse verticale ï¿½ 0 avant d'ajouter la force du rebond
                 rgbd2D.velocity = new Vector2(rgbd2D.velocity.x, 0f);
                 rgbd2D.AddForce(Vector2.up * bounceForce, ForceMode2D.Impulse);
 
@@ -219,7 +214,7 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                Debug.LogWarning("Animator non trouvé sur l'objet Mushroom");
+                Debug.LogWarning("Animator non trouvï¿½ sur l'objet Mushroom");
             }
         }
     }
@@ -255,7 +250,7 @@ public class PlayerController : MonoBehaviour
 
             StartCoroutine(DestroyPlatformAfterTime(newPlatform));
 
-            // Désactiver la création de plateforme après l'action
+            // Dï¿½sactiver la crï¿½ation de plateforme aprï¿½s l'action
             createPlatform = false;
             canCreatePlatform = false;
             m_Animator.SetBool("hasBeenCreated", false);
@@ -267,11 +262,11 @@ public class PlayerController : MonoBehaviour
         // Attendre pendant platformLifetime secondes
         yield return new WaitForSeconds(platformLifetime);
 
-        // Détruire la plateforme
+        // Dï¿½truire la plateforme
         Destroy(platform);
         canCreatePlatform = true;
     }
-    // Gérer la détection des objets interactifs
+    // Gï¿½rer la dï¿½tection des objets interactifs
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("interactiv"))
@@ -305,6 +300,7 @@ public class PlayerController : MonoBehaviour
             isInRange = false;
             interactionText.gameObject.SetActive(false);
             collidedObjectName = null;
+            m_Animator.SetBool("isEating", false);
         }
     }
 }
