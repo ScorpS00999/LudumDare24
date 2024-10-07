@@ -151,7 +151,7 @@ public class PlayerController : MonoBehaviour
                 else if (mangeChampi != null)
                 {
                     print("nique ta mere et ton pere");
-                    mangeChampi.Manger();
+                    mangeChampi.Manger(mangeChampi.gameObject.name);
                 }
                 interactionText.gameObject.SetActive(false);
             }

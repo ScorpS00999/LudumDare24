@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MangerChampi : MonoBehaviour
 {
@@ -25,9 +26,14 @@ public class MangerChampi : MonoBehaviour
     //    }
     //}
 
-    public void Manger()
+    public void Manger(string name)
     {
         //play anim
         Destroy(gameObject);
+        if (name == "Champi1")
+        {
+            //play animation
+            SceneManager.LoadScene("Menu");
+        }
     }
 }
