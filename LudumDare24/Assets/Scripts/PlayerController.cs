@@ -78,6 +78,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        print(m_Animator.GetBool("isOnAir"));
         Move();
 
         // Check if player is on the ground
@@ -91,6 +92,7 @@ public class PlayerController : MonoBehaviour
             JumpNumber = 0;
             hasAttackedEnnemy = false;
             m_Animator.SetBool("isJumpin", false);
+            m_Animator.SetBool("isOnAir", false);
 
         }
         Bounce();
@@ -189,9 +191,11 @@ public class PlayerController : MonoBehaviour
     public void Jump()
     {
         // Apply jump force if grounded
+        m_Animator.SetBool("isJumpin", false);
         rgbd2D.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         jumpPressed = false;
-        m_Animator.SetBool("isJumpin", false);
+        m_Animator.SetBool("isOnAir", true);
+
     }
 
     public void Bounce()
