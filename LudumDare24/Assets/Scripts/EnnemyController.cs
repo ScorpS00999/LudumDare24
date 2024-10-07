@@ -66,5 +66,6 @@ public class EnnemyController : MonoBehaviour
     private void Die()
     {
         Destroy(gameObject);
+        ValidationZone.Instance.Validation();
     }
 }
