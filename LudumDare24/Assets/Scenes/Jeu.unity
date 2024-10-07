@@ -717,7 +717,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5866025916470589423, guid: 852dade6de5a85748896c3fd35cf5f21, type: 3}
       propertyPath: m_SortingOrder
-      value: 15
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 6659350961316258280, guid: 852dade6de5a85748896c3fd35cf5f21, type: 3}
       propertyPath: mushroom
@@ -86093,7 +86093,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1078741770066146729, guid: 84b3128477ca10441baca4f24c8c70cd, type: 3}
       propertyPath: m_SortingOrder
-      value: 16
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 1128583106253987691, guid: 84b3128477ca10441baca4f24c8c70cd, type: 3}
       propertyPath: m_LocalPosition.x
