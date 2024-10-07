@@ -75,7 +75,6 @@ public class CharacterDisplay : MonoBehaviour
 
         if (indexDia == 1)
         {
-            StartCoroutine(attenteShake());
 
             this.GetComponentInChildren<ActivationMur>().ActivationZone();
             
@@ -123,10 +122,5 @@ public class CharacterDisplay : MonoBehaviour
         return indexDia;
     }
 
-    IEnumerator attenteShake()
-    {
-        yield return new WaitForSeconds(1.5f);
-        CameraController.Instance.shakeVibrate();
-    }
 
 }
