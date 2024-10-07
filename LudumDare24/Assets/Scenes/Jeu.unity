@@ -456,11 +456,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5463547195532114256, guid: 852dade6de5a85748896c3fd35cf5f21, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 201.49
+      value: -16.5
       objectReference: {fileID: 0}
     - target: {fileID: 5463547195532114256, guid: 852dade6de5a85748896c3fd35cf5f21, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 24.29
+      value: -0.1
       objectReference: {fileID: 0}
     - target: {fileID: 5463547195532114256, guid: 852dade6de5a85748896c3fd35cf5f21, type: 3}
       propertyPath: m_LocalPosition.z
@@ -496,7 +496,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5866025916470589423, guid: 852dade6de5a85748896c3fd35cf5f21, type: 3}
       propertyPath: m_SortingOrder
-      value: 15
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 6659350961316258280, guid: 852dade6de5a85748896c3fd35cf5f21, type: 3}
       propertyPath: mushroom
@@ -661,7 +661,7 @@ Transform:
   m_GameObject: {fileID: 357946061}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 201.49, y: 24.29, z: -9.984231}
+  m_LocalPosition: {x: -16.5, y: -0.1, z: -9.984231}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -69038,7 +69038,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 201.49, y: 24.29, z: -9.984231}
+  m_LocalPosition: {x: -16.5, y: -0.1, z: -9.984231}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -83245,7 +83245,7 @@ Transform:
   m_GameObject: {fileID: 1043566766}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.730309, y: 3.2544105, z: -0.024863318}
+  m_LocalPosition: {x: -3.8, y: 3.2544105, z: -0.024863318}
   m_LocalScale: {x: 1, y: 4.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -85087,7 +85087,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1078741770066146729, guid: 84b3128477ca10441baca4f24c8c70cd, type: 3}
       propertyPath: m_SortingOrder
-      value: 16
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 1128583106253987691, guid: 84b3128477ca10441baca4f24c8c70cd, type: 3}
       propertyPath: m_LocalPosition.x
