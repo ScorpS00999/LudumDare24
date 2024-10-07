@@ -169,8 +169,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 393874b4b92af7a49826370dade30276, type: 2}
+  m_sharedMaterial: {fileID: -8382542599161185719, guid: 393874b4b92af7a49826370dade30276, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -385,14 +385,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa9e7136258eb5d4484eb16914546b67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactiveCharacters:
-  - {fileID: 11400000, guid: 1ecb30c9f6abd954b9ae49008bb12c76, type: 2}
-  - {fileID: 11400000, guid: d7e89d41987960c4291a93f78ceefcc2, type: 2}
-  dialog: {fileID: 9044326516290683451}
   dialogues:
   - Hello Fungi. I'm decorating my stump, could you go get 3 acorns to make a table
     ?
   - 
+  bulleDialogue: {fileID: 0}
+  emplacementDia: {fileID: 0}
+  collect: {fileID: 0}
 --- !u!1 &5587488102725588688
 GameObject:
   m_ObjectHideFlags: 0
@@ -544,14 +543,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 1, b: 0.78590465, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d2e6d1e9b9f5ab2418f4bd60d258165c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

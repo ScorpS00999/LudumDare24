@@ -270,6 +270,7 @@ public class PlayerController : MonoBehaviour
 
             if (characterDisplay != null)
             {
+                print("je suis la ");
                 characterDisplay.EnleverDialogue();
             }
 

@@ -60,6 +60,7 @@ public class CharacterDisplay : MonoBehaviour
 
     public void EnleverDialogue()
     {
+        print("cihudfgjfdvdfhdfh");
         bulleDialogue.SetActive(false);
     }
 
@@ -98,28 +99,6 @@ public class CharacterDisplay : MonoBehaviour
                 collect.EnleverCollecte();
             }
         }
-
-        //print("Dialog started");
-        //foreach (CharacterData objData in interactiveCharacters)
-        //{
-        //    if (objData != null)
-        //    {
-        //        if(objData.sentences != null)
-        //        {
-        //            print("Test");
-        //        }
-        //        if(objData.characterName == obj)
-        //        {
-        //            print("Test2");
-        //        }
-        //        dialog.text = $"{obj}: {objData.sentences[0]}"; // Affiche la première phrase par exemple
-        //        //Debug.Log(objData.characterName + " : " + objData.sentences[0]);
-        //    }
-        //    else
-        //    {
-        //        Debug.Log("No data found");
-        //    }
-        //}
     }
 
     private void OnTriggerExit2D(Collider2D collision)
