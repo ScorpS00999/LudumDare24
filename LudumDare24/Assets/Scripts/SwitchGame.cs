@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Rendering;
 
 public class SwitchGame : MonoBehaviour
 {
@@ -42,6 +43,7 @@ public class SwitchGame : MonoBehaviour
 
     [SerializeField] GameObject audioJour;
     [SerializeField] GameObject audioNuit;
+    [SerializeField] GameObject cameraProcess;
 
     [SerializeField] ChangementSon changeSon;
 
@@ -133,6 +135,8 @@ public class SwitchGame : MonoBehaviour
         jeuMignon.SetActive(false);
 
         jeuCannibal.SetActive(true);
+        cameraProcess.GetComponent<Volume>().enabled = true;
+
         stopTransi = true;
     }
 
