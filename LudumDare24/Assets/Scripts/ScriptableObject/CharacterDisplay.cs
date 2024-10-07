@@ -73,6 +73,10 @@ public class CharacterDisplay : MonoBehaviour
         if (indexDia == 1)
         {
             this.GetComponentInChildren<ActivationMur>().ActivationZone();
+            if (gameObject.name == "ChampiJail")
+            {
+                SwitchGame.Instance.finJeu();
+            }
         }
 
         if (this.gameObject.name == "Champi1")
