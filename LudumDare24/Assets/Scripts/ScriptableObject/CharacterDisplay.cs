@@ -64,6 +64,8 @@ public class CharacterDisplay : MonoBehaviour
     }
 
 
+    bool diaCheck = false;
+
     public void TriggerDialog()
     {
         bulleDialogue.SetActive(true);
@@ -75,11 +77,15 @@ public class CharacterDisplay : MonoBehaviour
             StartCoroutine(attenteShake());
 
             this.GetComponentInChildren<ActivationMur>().ActivationZone();
-            if (gameObject.name == "ChampiJail")
-            {
-                SwitchGame.Instance.finJeu();
-            }
+            
         }
+
+        if (this.gameObject.name == "ChampiJail")
+        {
+            diaCheck = true;
+        }
+
+
 
         if (this.gameObject.name == "Champi1")
         {
@@ -114,6 +120,15 @@ public class CharacterDisplay : MonoBehaviour
         //        Debug.Log("No data found");
         //    }
         //}
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (gameObject.name == "ChampiJail" && collision.gameObject.CompareTag("Player") && diaCheck)
+        {
+            print("ejnefjbfr");
+            SwitchGame.Instance.finJeu();
+        }
     }
 
 

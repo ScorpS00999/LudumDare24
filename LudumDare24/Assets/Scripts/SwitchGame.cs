@@ -56,6 +56,7 @@ public class SwitchGame : MonoBehaviour
 
     public void finJeu()
     {
+        print("uuuuuuuuuuuuuuuuu");
         StartCoroutine(changer());
         
     }
@@ -109,6 +110,7 @@ public class SwitchGame : MonoBehaviour
 
     IEnumerator changer()
     {
+        yield return new WaitForSeconds(0.5f);
         CameraController.Instance.shakeVibrate();
         startTransi = true;
         yield return new WaitForSeconds(timer);
