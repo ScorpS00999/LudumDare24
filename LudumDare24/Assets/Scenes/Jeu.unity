@@ -132,11 +132,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 109052048008220771, guid: 2c14a263bf76f6043a451000216b6444, type: 3}
       propertyPath: m_Name
-      value: chamiManger
-      objectReference: {fileID: 0}
-    - target: {fileID: 109052048008220771, guid: 2c14a263bf76f6043a451000216b6444, type: 3}
-      propertyPath: m_TagString
-      value: interactiv
+      value: champi
       objectReference: {fileID: 0}
     - target: {fileID: 4078703270512787067, guid: 2c14a263bf76f6043a451000216b6444, type: 3}
       propertyPath: m_LocalPosition.x
@@ -245,7 +241,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -10
+  m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -285,61 +281,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2102793186014579335, guid: 852dade6de5a85748896c3fd35cf5f21, type: 3}
-      propertyPath: m_Size.x
-      value: 0.4551998
-      objectReference: {fileID: 0}
-    - target: {fileID: 2102793186014579335, guid: 852dade6de5a85748896c3fd35cf5f21, type: 3}
-      propertyPath: m_Size.y
-      value: 1.0000001
-      objectReference: {fileID: 0}
-    - target: {fileID: 2102793186014579335, guid: 852dade6de5a85748896c3fd35cf5f21, type: 3}
-      propertyPath: m_Offset.x
-      value: -0.0029449046
-      objectReference: {fileID: 0}
-    - target: {fileID: 3273088245396607243, guid: 852dade6de5a85748896c3fd35cf5f21, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.4726161
-      objectReference: {fileID: 0}
-    - target: {fileID: 3273088245396607243, guid: 852dade6de5a85748896c3fd35cf5f21, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.242744
-      objectReference: {fileID: 0}
-    - target: {fileID: 3273088245396607243, guid: 852dade6de5a85748896c3fd35cf5f21, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.0101
-      objectReference: {fileID: 0}
-    - target: {fileID: 3273088245396607243, guid: 852dade6de5a85748896c3fd35cf5f21, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.5755
-      objectReference: {fileID: 0}
-    - target: {fileID: 3537486694485492579, guid: 852dade6de5a85748896c3fd35cf5f21, type: 3}
-      propertyPath: m_Size.x
-      value: 0.54348814
-      objectReference: {fileID: 0}
-    - target: {fileID: 3537486694485492579, guid: 852dade6de5a85748896c3fd35cf5f21, type: 3}
-      propertyPath: m_Offset.x
-      value: -0.025034389
-      objectReference: {fileID: 0}
-    - target: {fileID: 3537486694485492579, guid: 852dade6de5a85748896c3fd35cf5f21, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.24000001
-      objectReference: {fileID: 0}
     - target: {fileID: 5311551700306607872, guid: 852dade6de5a85748896c3fd35cf5f21, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 5463547195532114256, guid: 852dade6de5a85748896c3fd35cf5f21, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.5897247
-      objectReference: {fileID: 0}
-    - target: {fileID: 5463547195532114256, guid: 852dade6de5a85748896c3fd35cf5f21, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 197.73
+      value: -11.3
       objectReference: {fileID: 0}
     - target: {fileID: 5463547195532114256, guid: 852dade6de5a85748896c3fd35cf5f21, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 29.69
+      value: -1.9
       objectReference: {fileID: 0}
     - target: {fileID: 5463547195532114256, guid: 852dade6de5a85748896c3fd35cf5f21, type: 3}
       propertyPath: m_LocalPosition.z
@@ -373,6 +325,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6659350961316258280, guid: 852dade6de5a85748896c3fd35cf5f21, type: 3}
+      propertyPath: mushroom
+      value: 
+      objectReference: {fileID: 7910078633495052936, guid: a5831d890df6777468658bc1e62f86a9, type: 3}
     - target: {fileID: 6659350961316258280, guid: 852dade6de5a85748896c3fd35cf5f21, type: 3}
       propertyPath: interactionText
       value: 
@@ -581,7 +537,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0.00008136034, z: 0}
   m_MaxChunkCount: 16
@@ -55971,7 +55927,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5533475542159876984, guid: b7c2e1def4f22354c8eb74bceda35d1b, type: 3}
       propertyPath: m_Name
-      value: ChampiJail
+      value: Champi1 (2)
       objectReference: {fileID: 0}
     - target: {fileID: 5543291121251651389, guid: b7c2e1def4f22354c8eb74bceda35d1b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -56270,7 +56226,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 197.73, y: 29.69, z: -9.984231}
+  m_LocalPosition: {x: -11.3, y: -1.9, z: -9.984231}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -56471,7 +56427,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0.00008136034, z: 0}
   m_MaxChunkCount: 16
@@ -65553,7 +65509,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -10
+  m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -65823,7 +65779,7 @@ Transform:
   m_GameObject: {fileID: 1133864715}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -65951,7 +65907,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1275351234
 Transform:
   m_ObjectHideFlags: 0
@@ -66033,10 +65989,6 @@ PrefabInstance:
     - target: {fileID: 3581904731799665239, guid: fd9e51b75c3e64e4a98f043738fffcf5, type: 3}
       propertyPath: m_Name
       value: Canvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 3581904731799665239, guid: fd9e51b75c3e64e4a98f043738fffcf5, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5655404673932698208, guid: fd9e51b75c3e64e4a98f043738fffcf5, type: 3}
       propertyPath: m_AnchorMax.y
@@ -66369,11 +66321,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 109052048008220771, guid: 2c14a263bf76f6043a451000216b6444, type: 3}
       propertyPath: m_Name
-      value: champiManger2
-      objectReference: {fileID: 0}
-    - target: {fileID: 109052048008220771, guid: 2c14a263bf76f6043a451000216b6444, type: 3}
-      propertyPath: m_TagString
-      value: interactiv
+      value: champi (2)
       objectReference: {fileID: 0}
     - target: {fileID: 4078703270512787067, guid: 2c14a263bf76f6043a451000216b6444, type: 3}
       propertyPath: m_LocalPosition.x
@@ -66436,10 +66384,6 @@ PrefabInstance:
     - target: {fileID: 109052048008220771, guid: 2c14a263bf76f6043a451000216b6444, type: 3}
       propertyPath: m_Name
       value: champi (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 109052048008220771, guid: 2c14a263bf76f6043a451000216b6444, type: 3}
-      propertyPath: m_TagString
-      value: interactiv
       objectReference: {fileID: 0}
     - target: {fileID: 4078703270512787067, guid: 2c14a263bf76f6043a451000216b6444, type: 3}
       propertyPath: m_LocalPosition.x
@@ -67007,7 +66951,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2088632528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67062,8 +67006,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 8.401794, y: -13.302887}
-  m_SizeDelta: {x: 198.8427, y: 183.4395}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2093244300 stripped
 GameObject:
