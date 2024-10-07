@@ -40,8 +40,8 @@ public class SwitchGame : MonoBehaviour
 
     [SerializeField] GameObject murInvisible;
 
-    [SerializeField] AudioClip audioJour;
-    [SerializeField] AudioClip audioNuit;
+    [SerializeField] GameObject audioJour;
+    [SerializeField] GameObject audioNuit;
 
     [SerializeField] ChangementSon changeSon;
 
@@ -50,7 +50,9 @@ public class SwitchGame : MonoBehaviour
     {
         
         jeuMignon.SetActive(true);
+        audioJour.SetActive(true);
         jeuCannibal.SetActive(false);
+        audioNuit.SetActive(false);
 
         startTransi = false;
         transparence = fondu.color;
@@ -60,7 +62,6 @@ public class SwitchGame : MonoBehaviour
         timeStart = timer;
         timeEnd = timer;
 
-        changeSon.changementSon(audioJour);
     }
 
     public void finJeu()
@@ -124,7 +125,8 @@ public class SwitchGame : MonoBehaviour
         startTransi = true;
         yield return new WaitForSeconds(timer);
 
-        changeSon.changementSon(audioNuit);
+        audioJour.SetActive(false);
+        audioNuit.SetActive(true);
 
         murInvisible.SetActive(false);
 

@@ -89,9 +89,9 @@ public class PlayerController : MonoBehaviour
         }
         if (isGrounded)
         {
+            m_Animator.SetBool("isJumpin", false);
             JumpNumber = 0;
             hasAttackedEnnemy = false;
-            m_Animator.SetBool("isJumpin", false);
             m_Animator.SetBool("isOnAir", false);
 
         }
@@ -190,8 +190,8 @@ public class PlayerController : MonoBehaviour
 
     public void Jump()
     {
-        // Apply jump force if grounded
         m_Animator.SetBool("isJumpin", false);
+        // Apply jump force if grounded
         rgbd2D.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         jumpPressed = false;
         m_Animator.SetBool("isOnAir", true);
