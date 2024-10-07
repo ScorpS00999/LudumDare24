@@ -15,9 +15,21 @@ public class CameraController : MonoBehaviour
             // Si l'instance n'existe pas encore, on la crée
             if (instance == null)
             {
-                instance = new CameraController();
+                return null;
             }
             return instance;
+        }
+    }
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else if (instance != this)
+        {
+            Destroy(gameObject);
         }
     }
 
@@ -29,7 +41,7 @@ public class CameraController : MonoBehaviour
 
     [SerializeField] CinemachineVirtualCamera virtualCamera;
 
-    [SerializeField] float decalageCam = 1.5f;
+    public float decalageCam = 1.5f;
 
 
     public void shakeCamera()
@@ -83,11 +95,5 @@ public class CameraController : MonoBehaviour
 
             yield return null;
         }
-    }
-
-    private void Start()
-    {
-        shakeVibrate();
-        shakeCamera();
     }
 }

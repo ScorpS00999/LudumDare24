@@ -251,7 +251,7 @@ GameObject:
   - component: {fileID: 1416223267277132238}
   m_Layer: 0
   m_Name: png
-  m_TagString: Untagged
+  m_TagString: interactiv
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -385,8 +385,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa9e7136258eb5d4484eb16914546b67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactiveCharacters: []
+  interactiveCharacters:
+  - {fileID: 11400000, guid: 1ecb30c9f6abd954b9ae49008bb12c76, type: 2}
+  - {fileID: 11400000, guid: d7e89d41987960c4291a93f78ceefcc2, type: 2}
   dialog: {fileID: 9044326516290683451}
+  dialogues:
+  - Hello Fungi. I'm decorating my stump, could you go get 3 acorns to make a table
+    ?
+  - 
 --- !u!1 &5587488102725588688
 GameObject:
   m_ObjectHideFlags: 0
@@ -404,7 +410,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4573161253564697313
 Transform:
   m_ObjectHideFlags: 0
@@ -466,7 +472,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 3.8643813, y: 0}
+  m_Offset: {x: 3.8643813, y: -2.4357882}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -477,7 +483,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 8.728763, y: 1}
+  m_Size: {x: 8.728763, y: 5.8715763}
   m_EdgeRadius: 0
 --- !u!1 &5639748413007453699
 GameObject:
@@ -514,7 +520,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -421.118, y: -243.781}
+  m_AnchoredPosition: {x: -421.12, y: -242.98}
   m_SizeDelta: {x: -854.5, y: -481.1556}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1304516730802816648

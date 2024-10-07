@@ -33,9 +33,20 @@ public class Bulle : MonoBehaviour
             if (Vector2.Distance(transform.position, posTransport) < 0.02f)
             {
                 this.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+                this.gameObject.GetComponent<Collider2D>().enabled = false;
                 transform.position = posDebut;
                 player.transform.position = posTransport;
-                player.SetActive(true);
+
+                //player.SetActive(true);
+
+                player.GetComponent<SpriteRenderer>().enabled = true;
+                player.GetComponent<PlayerController>().enabled = true;
+
+                Transform enfant = player.transform.Find("CameraController");
+                GameObject gameObjectEnfant = enfant.gameObject;
+
+                changementCam.Instance.changeFollow(gameObjectEnfant);
+
                 dansTriger = false;
                 StartCoroutine(retourBulle());
             }
@@ -47,9 +58,19 @@ public class Bulle : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            print("et coucou");
+            Transform enfant = this.gameObject.transform.Find("CamFollow");
+            GameObject gameObjectEnfant = enfant.gameObject;
+
+            changementCam.Instance.changeFollow(gameObjectEnfant);
+
             player = collision.gameObject;
-            collision.gameObject.SetActive(false);
+
+            player.GetComponent<SpriteRenderer>().enabled = false;
+            player.GetComponent<PlayerController>().enabled = false;
+
+            //player.SetActive(false);
+
+
             dansTriger = true;
         }
     }
@@ -60,14 +81,15 @@ public class Bulle : MonoBehaviour
         //peut etre plus tard remplacer par time.deltaTime ?
         yield return new WaitForSeconds(5);
         this.gameObject.GetComponent<SpriteRenderer>().enabled = true;
+        this.gameObject.GetComponent<Collider2D>().enabled = true;
     }
 
     void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
         Gizmos.DrawSphere(transform.position, 0.2f);
-        Gizmos.DrawSphere(posTransport, 0.2f);
-        Gizmos.DrawLine(transform.position, posTransport); // Dessiner une ligne entre les deux points
+        Gizmos.DrawSphere(new Vector2(xPosTransport, yPosTransport), 0.2f);
+        Gizmos.DrawLine(transform.position, new Vector2(xPosTransport, yPosTransport)); // Dessiner une ligne entre les deux points
 
         //SceneView.RepaintAll();
     }

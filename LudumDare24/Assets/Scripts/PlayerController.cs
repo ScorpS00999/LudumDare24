@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float bounceForce = 5f;
     [SerializeField] private int maxJump = 1;
     [SerializeField] private int attackPoints = 25;
+    private Animator m_Animator;
 
     private int JumpNumber = 0;
 
@@ -50,7 +51,6 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         controls = new PlayerControls();
-        characterDisplay = new CharacterDisplay();
 
         // Find the character object
         Transform childObject = transform.Find("scope");
@@ -61,6 +61,7 @@ public class PlayerController : MonoBehaviour
     private void OnEnable()
     {
         controls.Player.Enable();
+        m_Animator = gameObject.GetComponent<Animator>();
     }
 
     private void OnDisable()
@@ -84,6 +85,8 @@ public class PlayerController : MonoBehaviour
         {
             JumpNumber = 0;
             hasAttackedEnnemy = false;
+            m_Animator.SetBool("isJumpin", false);
+
         }
         Bounce();
         JumpOnEnnemy();
@@ -129,13 +132,8 @@ public class PlayerController : MonoBehaviour
         // Lire l'input d'interaction (pressé ou relâché)
         if (context.performed && isInRange) // Check if player is in range
         {
-            if (collidedObjectName != null) { 
-                Debug.Log("Interaction triggered with character: " + collidedObjectName);
-
-                // Trigger dialog with the current character
-                print("Là ça marche");
-                characterDisplay.TriggerDialog(collidedObjectName);
-                print("Là aussi");
+            if (collidedObjectName != null) {
+                characterDisplay.TriggerDialog();
                 interactionText.gameObject.SetActive(false);
             }
             else
@@ -155,14 +153,20 @@ public class PlayerController : MonoBehaviour
         if (direction.magnitude >= 1.0f)
         {
             rgbd2D.position += direction * mSpeed;
+            m_Animator.SetBool("isWalkin", true);
+        }
+        else
+        {
+            m_Animator.SetBool("isWalkin", false);
         }
     }
 
     public void Jump()
     {
         // Apply jump force if grounded
+        m_Animator.SetBool("isJumpin", true);
         rgbd2D.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-        jumpPressed = false; 
+        jumpPressed = false;
     }
 
     public void Bounce()
@@ -230,6 +234,11 @@ public class PlayerController : MonoBehaviour
             isInRange = true;
 
             collidedObjectName = collision.gameObject.name;
+
+            characterDisplay = collision.gameObject.GetComponent<CharacterDisplay>();
+
+            characterDisplay.EnleverDialogue();
+
             Debug.Log(collidedObjectName);
             string interactKey = InputControlPath.ToHumanReadableString(controls.Player.Interact.bindings[0].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
             string interactKey2 = InputControlPath.ToHumanReadableString(controls.Player.Interact.bindings[1].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);

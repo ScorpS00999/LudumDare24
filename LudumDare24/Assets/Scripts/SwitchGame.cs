@@ -4,24 +4,53 @@ using UnityEngine;
 
 public class SwitchGame : MonoBehaviour
 {
-    [SerializeField] List<Sprite> spritesApresChangement = new List<Sprite>();
+    static SwitchGame instance;
 
-    [SerializeField] List<GameObject> gameObjectsChanger = new List<GameObject>();
+    public static SwitchGame Instance
+    {
+        get
+        {
+            // Si l'instance n'existe pas encore, on la crée
+            if (instance == null)
+            {
+                return null;
+            }
+            return instance;
+        }
+    }
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else if (instance != this)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+
+
+    [SerializeField] GameObject jeuMignon;
+
+    [SerializeField] GameObject jeuCannibal;
 
     [SerializeField] GameObject murInvisible;
 
-    //public bool finJeu = false;
-
-    int indexObjectChanger = 0;
+    private void Start()
+    {
+        jeuMignon.SetActive(true);
+        jeuCannibal.SetActive(false);
+    }
 
     public void finJeu()
     {
         murInvisible.SetActive(false);
 
-        foreach (var sprite in spritesApresChangement)
-        {
-            gameObjectsChanger[indexObjectChanger].GetComponent<SpriteRenderer>().sprite = sprite;
-            indexObjectChanger++;
-        }
+        jeuMignon.SetActive(false);
+
+        jeuCannibal.SetActive(true);
     }
 }

@@ -5,9 +5,30 @@ using UnityEngine.UI;
 
 public class CollectGlands : MonoBehaviour
 {
+    [SerializeField] GameObject allGlands;
+
     [SerializeField] private List<Image> collecteGlands = new List<Image>();
 
+    [SerializeField] Collider2D colliderZone;
+
     private int nbrGlands = 0;
+
+    bool glandOk = false;
+
+    private void Start()
+    {
+        EnleverCollecte();
+    }
+
+    public void AfficherCollecte()
+    {
+        allGlands.SetActive(true);
+    }
+
+    public void EnleverCollecte()
+    {
+        allGlands.SetActive(false);
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -20,7 +41,16 @@ public class CollectGlands : MonoBehaviour
             //collecteGlands[nbrGlands].color = Color.white;
             
             nbrGlands++;
+            if (nbrGlands >= 3)
+            {
+                colliderZone.enabled = false;
+                ValidationZone.Instance.Validation();
+            }
+            print(nbrGlands);
             Destroy(collision.gameObject);
         }
+        
     }
+
+
 }
