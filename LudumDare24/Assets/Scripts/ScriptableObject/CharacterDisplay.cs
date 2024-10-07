@@ -101,6 +101,11 @@ public class CharacterDisplay : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        bulleDialogue.gameObject.SetActive(false);
+    }
+
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (gameObject.name == "ChampiJail" && collision.gameObject.CompareTag("Player") && diaCheck)
