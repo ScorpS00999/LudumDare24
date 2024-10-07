@@ -13,8 +13,6 @@ public class CollectGlands : MonoBehaviour
 
     private int nbrGlands = 0;
 
-    bool glandOk = false;
-
     private void Start()
     {
         EnleverCollecte();

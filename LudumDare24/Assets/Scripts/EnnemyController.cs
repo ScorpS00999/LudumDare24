@@ -11,6 +11,8 @@ public class EnnemyController : MonoBehaviour
     private Vector3 startPosition;
     private bool movingRight = true;
 
+    [SerializeField] Collider2D colliderZone;
+
     void Start()
     {
         startPosition = transform.position; // Position de départ
@@ -62,6 +64,7 @@ public class EnnemyController : MonoBehaviour
         Debug.Log("Ennemy Died!");
         Destroy(gameObject);
 
+        colliderZone.enabled = false;
         ValidationZone.Instance.Validation();
     }
 }

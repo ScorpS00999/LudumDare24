@@ -72,7 +72,13 @@ public class CharacterDisplay : MonoBehaviour
 
         if (indexDia == 1)
         {
+            StartCoroutine(attenteShake());
+
             this.GetComponentInChildren<ActivationMur>().ActivationZone();
+            if (gameObject.name == "ChampiJail")
+            {
+                SwitchGame.Instance.finJeu();
+            }
         }
 
         if (this.gameObject.name == "Champi1")
@@ -116,6 +122,12 @@ public class CharacterDisplay : MonoBehaviour
         indexDia = index;
         print(indexDia);
         return indexDia;
+    }
+
+    IEnumerator attenteShake()
+    {
+        yield return new WaitForSeconds(1.5f);
+        CameraController.Instance.shakeVibrate();
     }
 
 }
