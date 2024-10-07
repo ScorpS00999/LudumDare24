@@ -281,29 +281,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2102793186014579335, guid: 852dade6de5a85748896c3fd35cf5f21, type: 3}
-      propertyPath: m_Size.x
-      value: 0.5120694
-      objectReference: {fileID: 0}
-    - target: {fileID: 2102793186014579335, guid: 852dade6de5a85748896c3fd35cf5f21, type: 3}
-      propertyPath: m_Size.y
-      value: 1.0000001
-      objectReference: {fileID: 0}
-    - target: {fileID: 2102793186014579335, guid: 852dade6de5a85748896c3fd35cf5f21, type: 3}
-      propertyPath: m_Offset.x
-      value: -0.02226774
+    - target: {fileID: 731233644272560717, guid: 852dade6de5a85748896c3fd35cf5f21, type: 3}
+      propertyPath: m_Constraints
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5311551700306607872, guid: 852dade6de5a85748896c3fd35cf5f21, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 5463547195532114256, guid: 852dade6de5a85748896c3fd35cf5f21, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.845592
-      objectReference: {fileID: 0}
-    - target: {fileID: 5463547195532114256, guid: 852dade6de5a85748896c3fd35cf5f21, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.932
+      value: -11.3
       objectReference: {fileID: 0}
     - target: {fileID: 5463547195532114256, guid: 852dade6de5a85748896c3fd35cf5f21, type: 3}
       propertyPath: m_LocalPosition.y
@@ -55925,18 +55913,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 421502961}
     - target: {fileID: 1416223267277132238, guid: b7c2e1def4f22354c8eb74bceda35d1b, type: 3}
-      propertyPath: dialogues.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1416223267277132238, guid: b7c2e1def4f22354c8eb74bceda35d1b, type: 3}
-      propertyPath: dialogues.Array.data[0]
-      value: "So you\u2019re the \u201Ccharming\u201D prince who\u2019s supposed
-        to save me ? You don\u2019t exude a single ounce of royalty; you\u2019re
-        nothing but an abomination, a true mistake of nature. You should be ashamed
-        to walk in these woods. I\u2019d rather die in this cell than see you for
-        another moment ! "
-      objectReference: {fileID: 0}
-    - target: {fileID: 1416223267277132238, guid: b7c2e1def4f22354c8eb74bceda35d1b, type: 3}
       propertyPath: dialogues.Array.data[1]
       value: "Ah cool, that\u2019s nice! Can you leave now? I don\u2019t want you
         to scare my kids."
@@ -55955,7 +55931,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5533475542159876984, guid: b7c2e1def4f22354c8eb74bceda35d1b, type: 3}
       propertyPath: m_Name
-      value: ChampiJail
+      value: Champi1 (2)
       objectReference: {fileID: 0}
     - target: {fileID: 5543291121251651389, guid: b7c2e1def4f22354c8eb74bceda35d1b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -56122,11 +56098,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5831d890df6777468658bc1e62f86a9, type: 3}
---- !u!4 &493120344 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5543291121251651389, guid: b7c2e1def4f22354c8eb74bceda35d1b, type: 3}
-  m_PrefabInstance: {fileID: 1672194093}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -56259,7 +56230,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.932, y: -1.9, z: -9.984231}
+  m_LocalPosition: {x: -11.3, y: -1.9, z: -9.984231}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -56300,27 +56271,11 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!1 &530850751 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5639748413007453699, guid: b7c2e1def4f22354c8eb74bceda35d1b, type: 3}
-  m_PrefabInstance: {fileID: 1672194093}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &592300044 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6052123469488626866, guid: a5831d890df6777468658bc1e62f86a9, type: 3}
   m_PrefabInstance: {fileID: 1049590896}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &614873011 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9044326516290683451, guid: b7c2e1def4f22354c8eb74bceda35d1b, type: 3}
-  m_PrefabInstance: {fileID: 1672194093}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -65006,13 +64961,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1993563732}
     - target: {fileID: 1416223267277132238, guid: b7c2e1def4f22354c8eb74bceda35d1b, type: 3}
-      propertyPath: dialogues.Array.data[0]
-      value: Hello Fungi. I'm redecorating my stump, could you go get me 3 acorns
-        to make a table?
-      objectReference: {fileID: 0}
-    - target: {fileID: 1416223267277132238, guid: b7c2e1def4f22354c8eb74bceda35d1b, type: 3}
       propertyPath: dialogues.Array.data[1]
-      value: " Ah cool, that\u2019s nice! Can you leave now? I don\u2019t want you
+      value: "Ah cool, that\u2019s nice! Can you leave now? I don\u2019t want you
         to scare my kids."
       objectReference: {fileID: 0}
     - target: {fileID: 3146211280568454478, guid: b7c2e1def4f22354c8eb74bceda35d1b, type: 3}
@@ -66365,107 +66315,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1001 &1672194093
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1842167083}
-    m_Modifications:
-    - target: {fileID: 1416223267277132238, guid: b7c2e1def4f22354c8eb74bceda35d1b, type: 3}
-      propertyPath: collect
-      value: 
-      objectReference: {fileID: 866517331}
-    - target: {fileID: 1416223267277132238, guid: b7c2e1def4f22354c8eb74bceda35d1b, type: 3}
-      propertyPath: bulleDialogue
-      value: 
-      objectReference: {fileID: 530850751}
-    - target: {fileID: 1416223267277132238, guid: b7c2e1def4f22354c8eb74bceda35d1b, type: 3}
-      propertyPath: emplacementDia
-      value: 
-      objectReference: {fileID: 614873011}
-    - target: {fileID: 1416223267277132238, guid: b7c2e1def4f22354c8eb74bceda35d1b, type: 3}
-      propertyPath: dialogues.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1416223267277132238, guid: b7c2e1def4f22354c8eb74bceda35d1b, type: 3}
-      propertyPath: dialogues.Array.data[0]
-      value: "My grandfather has been kidnapped! I tried to follow the kidnappers,
-        but they said I was too cute to scare them. You, on the other hand, I\u2019m
-        sure you can do it! With your looks, they'll tremble in fear, that's for
-        sure!"
-      objectReference: {fileID: 0}
-    - target: {fileID: 1416223267277132238, guid: b7c2e1def4f22354c8eb74bceda35d1b, type: 3}
-      propertyPath: dialogues.Array.data[1]
-      value: "Ah cool, that\u2019s nice! Can you leave now? I don\u2019t want you
-        to scare my kids."
-      objectReference: {fileID: 0}
-    - target: {fileID: 3146211280568454478, guid: b7c2e1def4f22354c8eb74bceda35d1b, type: 3}
-      propertyPath: murApres
-      value: 
-      objectReference: {fileID: 151800346}
-    - target: {fileID: 3146211280568454478, guid: b7c2e1def4f22354c8eb74bceda35d1b, type: 3}
-      propertyPath: murAvant
-      value: 
-      objectReference: {fileID: 1043566766}
-    - target: {fileID: 3435053387740350003, guid: b7c2e1def4f22354c8eb74bceda35d1b, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5533475542159876984, guid: b7c2e1def4f22354c8eb74bceda35d1b, type: 3}
-      propertyPath: m_Name
-      value: Champi1 (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 5543291121251651389, guid: b7c2e1def4f22354c8eb74bceda35d1b, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 118.11
-      objectReference: {fileID: 0}
-    - target: {fileID: 5543291121251651389, guid: b7c2e1def4f22354c8eb74bceda35d1b, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5543291121251651389, guid: b7c2e1def4f22354c8eb74bceda35d1b, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.20134814
-      objectReference: {fileID: 0}
-    - target: {fileID: 5543291121251651389, guid: b7c2e1def4f22354c8eb74bceda35d1b, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 5543291121251651389, guid: b7c2e1def4f22354c8eb74bceda35d1b, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5543291121251651389, guid: b7c2e1def4f22354c8eb74bceda35d1b, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5543291121251651389, guid: b7c2e1def4f22354c8eb74bceda35d1b, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 5543291121251651389, guid: b7c2e1def4f22354c8eb74bceda35d1b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5543291121251651389, guid: b7c2e1def4f22354c8eb74bceda35d1b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5543291121251651389, guid: b7c2e1def4f22354c8eb74bceda35d1b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 5587488102725588688, guid: b7c2e1def4f22354c8eb74bceda35d1b, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: b7c2e1def4f22354c8eb74bceda35d1b, type: 3}
 --- !u!1001 &1740537139
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -66628,7 +66477,6 @@ Transform:
   - {fileID: 158617976}
   - {fileID: 1079352677}
   - {fileID: 1306127179}
-  - {fileID: 493120344}
   - {fileID: 380774782}
   - {fileID: 421502960}
   m_Father: {fileID: 0}
@@ -66788,15 +66636,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 832726907}
     - target: {fileID: 1416223267277132238, guid: b7c2e1def4f22354c8eb74bceda35d1b, type: 3}
-      propertyPath: dialogues.Array.data[0]
-      value: AH! You can help me! There's a squirrel lurking around here that keeps
-        stealing our acorn stash. You should be able to handle it, you're the kind
-        of mushroom that could scare off even the rodents!
-      objectReference: {fileID: 0}
-    - target: {fileID: 1416223267277132238, guid: b7c2e1def4f22354c8eb74bceda35d1b, type: 3}
       propertyPath: dialogues.Array.data[1]
-      value: You scared it off? I'm not surprised! Ugh, what's the point of growing
-        up if you end up looking like that?
+      value: "Ah cool, that\u2019s nice! Can you leave now? I don\u2019t want you
+        to scare my kids."
       objectReference: {fileID: 0}
     - target: {fileID: 3146211280568454478, guid: b7c2e1def4f22354c8eb74bceda35d1b, type: 3}
       propertyPath: murApres

@@ -11,11 +11,13 @@ public class EnnemyController : MonoBehaviour
     private Vector3 startPosition;
     private bool movingRight = true;
 
-    [SerializeField] Collider2D colliderZone;
+    //[SerializeField] Collider2D colliderZone;
+    private SpriteRenderer spriteRenderer;
 
     void Start()
     {
         startPosition = transform.position; // Position de départ
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void FixedUpdate()
@@ -34,6 +36,8 @@ public class EnnemyController : MonoBehaviour
             if (transform.position.x >= startPosition.x + distance)
             {
                 movingRight = false;
+                spriteRenderer.flipX = true;
+
             }
         }
         // Si l'ennemi est en mouvement vers la gauche
@@ -45,13 +49,13 @@ public class EnnemyController : MonoBehaviour
             if (transform.position.x <= startPosition.x - distance)
             {
                 movingRight = true;
+                spriteRenderer.flipX = false;
             }
         }
     }
     public void TakeDamage(int damage)
     {
         ennemyLifePoints -= damage;
-        Debug.Log("Ennemy Life Points: " + ennemyLifePoints);
 
         if (ennemyLifePoints <= 0)
         {
@@ -61,10 +65,6 @@ public class EnnemyController : MonoBehaviour
 
     private void Die()
     {
-        Debug.Log("Ennemy Died!");
         Destroy(gameObject);
-
-        colliderZone.enabled = false;
-        ValidationZone.Instance.Validation();
     }
 }
