@@ -134,10 +134,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1183225378646889389}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.00021362305, y: -0.035736084}
-  m_SizeDelta: {x: 2.7002, y: 0.8784}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -0.00012207031, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9124572680917990839
 CanvasRenderer:
@@ -194,8 +194,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.5
-  m_fontSizeBase: 0.5
+  m_fontSize: 0.35
+  m_fontSizeBase: 0.35
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -230,7 +230,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0.06914762}
+  m_margin: {x: 0.4197924, y: 0, z: 0.44448113, w: 0.06914762}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -388,9 +388,10 @@ MonoBehaviour:
   dialogues:
   - Hello Fungi. I'm decorating my stump, could you go get 3 acorns to make a table
     ?
-  - 
-  bulleDialogue: {fileID: 0}
-  emplacementDia: {fileID: 0}
+  - "Ah cool, that\u2019s nice! Can you leave now? I don\u2019t want you to scare
+    my kids. "
+  bulleDialogue: {fileID: 5639748413007453699}
+  emplacementDia: {fileID: 9044326516290683451}
   collect: {fileID: 0}
 --- !u!1 &5587488102725588688
 GameObject:
@@ -519,8 +520,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -421.12, y: -242.98}
-  m_SizeDelta: {x: -854.5, y: -481.1556}
+  m_AnchoredPosition: {x: -421.19418, y: -242.30096}
+  m_SizeDelta: {x: -850.6971, y: -479.7975}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1304516730802816648
 CanvasRenderer:
