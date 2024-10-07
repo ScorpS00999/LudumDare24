@@ -44,3 +44,24 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: fond vert
+    uniqueID: 3365219655
+    locked: 0
+  - name: 6
+    uniqueID: 1132088915
+    locked: 0
+  - name: 5
+    uniqueID: 2809413799
+    locked: 0
+  - name: 4
+    uniqueID: 3033069551
+    locked: 0
+  - name: 3
+    uniqueID: 4149047159
+    locked: 0
+  - name: 2
+    uniqueID: 934081115
+    locked: 0
+  - name: 1
+    uniqueID: 883824893
+    locked: 0
