@@ -29,6 +29,7 @@ public class Bulle : MonoBehaviour
         if (dansTriger)
         {
             transform.position = Vector2.MoveTowards(transform.position, posTransport, speed * Time.deltaTime);
+            player.transform.position = Vector2.MoveTowards(transform.position, posTransport, speed * Time.deltaTime);
 
             if (Vector2.Distance(transform.position, posTransport) < 0.02f)
             {
@@ -65,7 +66,7 @@ public class Bulle : MonoBehaviour
 
             player = collision.gameObject;
 
-            player.GetComponent<SpriteRenderer>().enabled = false;
+            //player.GetComponent<SpriteRenderer>().enabled = true;
             player.GetComponent<PlayerController>().enabled = false;
 
             //player.SetActive(false);

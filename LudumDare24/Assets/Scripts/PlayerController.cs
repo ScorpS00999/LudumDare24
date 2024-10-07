@@ -108,6 +108,7 @@ public class PlayerController : MonoBehaviour
             {
                 jumpPressed = true;
                 JumpNumber += 1;
+                m_Animator.SetBool("isJumpin", true);
             }
         }
         else if (context.canceled)
@@ -121,6 +122,7 @@ public class PlayerController : MonoBehaviour
         if (context.performed)
         {
             createPlatform = true;
+            m_Animator.SetBool("hasBeenCreated", true);
         }
         else if (context.canceled)
         {
@@ -164,9 +166,9 @@ public class PlayerController : MonoBehaviour
     public void Jump()
     {
         // Apply jump force if grounded
-        m_Animator.SetBool("isJumpin", true);
         rgbd2D.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         jumpPressed = false;
+        m_Animator.SetBool("isJumpin", false);
     }
 
     public void Bounce()
@@ -175,8 +177,12 @@ public class PlayerController : MonoBehaviour
 
         if (shouldBounce)
         {
+            m_Animator.SetBool("hasBounce", true);
+
             rgbd2D.velocity = new Vector2(rgbd2D.velocity.x, 0f);
             rgbd2D.AddForce(Vector2.up * bounceForce, ForceMode2D.Impulse);
+
+            m_Animator.SetBool("hasBounce", false);
         }
     }
 
@@ -214,6 +220,7 @@ public class PlayerController : MonoBehaviour
             // Désactiver la création de plateforme après l'action
             createPlatform = false;
             canCreatePlatform = false;
+            m_Animator.SetBool("hasBeenCreated", false);
 
         }
     }
