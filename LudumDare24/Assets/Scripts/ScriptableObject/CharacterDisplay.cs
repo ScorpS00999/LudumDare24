@@ -60,9 +60,12 @@ public class CharacterDisplay : MonoBehaviour
 
     public void EnleverDialogue()
     {
+        print("cihudfgjfdvdfhdfh");
         bulleDialogue.SetActive(false);
     }
 
+
+    bool diaCheck = false;
 
     public void TriggerDialog()
     {
@@ -72,12 +75,17 @@ public class CharacterDisplay : MonoBehaviour
 
         if (indexDia == 1)
         {
+
             this.GetComponentInChildren<ActivationMur>().ActivationZone();
-            if (gameObject.name == "ChampiJail")
-            {
-                SwitchGame.Instance.finJeu();
-            }
+            
         }
+
+        if (this.gameObject.name == "ChampiJail")
+        {
+            diaCheck = true;
+        }
+
+
 
         if (this.gameObject.name == "Champi1")
         {
@@ -90,28 +98,20 @@ public class CharacterDisplay : MonoBehaviour
                 collect.EnleverCollecte();
             }
         }
+    }
 
-        //print("Dialog started");
-        //foreach (CharacterData objData in interactiveCharacters)
-        //{
-        //    if (objData != null)
-        //    {
-        //        if(objData.sentences != null)
-        //        {
-        //            print("Test");
-        //        }
-        //        if(objData.characterName == obj)
-        //        {
-        //            print("Test2");
-        //        }
-        //        dialog.text = $"{obj}: {objData.sentences[0]}"; // Affiche la première phrase par exemple
-        //        //Debug.Log(objData.characterName + " : " + objData.sentences[0]);
-        //    }
-        //    else
-        //    {
-        //        Debug.Log("No data found");
-        //    }
-        //}
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        bulleDialogue.gameObject.SetActive(false);
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (gameObject.name == "ChampiJail" && collision.gameObject.CompareTag("Player") && diaCheck)
+        {
+            print("ejnefjbfr");
+            SwitchGame.Instance.finJeu();
+        }
     }
 
 
@@ -121,5 +121,6 @@ public class CharacterDisplay : MonoBehaviour
         print(indexDia);
         return indexDia;
     }
+
 
 }

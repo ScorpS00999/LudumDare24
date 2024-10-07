@@ -9,6 +9,7 @@ public class Bulle : MonoBehaviour
     [SerializeField] int yPosTransport;
 
     [SerializeField] float speed = 2f;
+    
 
     bool dansTriger = false;
 
@@ -17,6 +18,7 @@ public class Bulle : MonoBehaviour
 
     GameObject player;
 
+    private Animator bubbleAnimator;
 
     private void Start()
     {
@@ -29,6 +31,7 @@ public class Bulle : MonoBehaviour
         if (dansTriger)
         {
             transform.position = Vector2.MoveTowards(transform.position, posTransport, speed * Time.deltaTime);
+            player.transform.position = Vector2.MoveTowards(transform.position, posTransport, speed * Time.deltaTime);
 
             if (Vector2.Distance(transform.position, posTransport) < 0.02f)
             {
@@ -48,6 +51,7 @@ public class Bulle : MonoBehaviour
                 changementCam.Instance.changeFollow(gameObjectEnfant);
 
                 dansTriger = false;
+                //bubbleAnimator.SetBool("shouldBop", true);
                 StartCoroutine(retourBulle());
             }
         }
@@ -65,7 +69,7 @@ public class Bulle : MonoBehaviour
 
             player = collision.gameObject;
 
-            player.GetComponent<SpriteRenderer>().enabled = false;
+            //player.GetComponent<SpriteRenderer>().enabled = true;
             player.GetComponent<PlayerController>().enabled = false;
 
             //player.SetActive(false);
@@ -78,6 +82,7 @@ public class Bulle : MonoBehaviour
 
     IEnumerator retourBulle()
     {
+        //bubbleAnimator.SetBool("shouldBop", false);
         //peut etre plus tard remplacer par time.deltaTime ?
         yield return new WaitForSeconds(5);
         this.gameObject.GetComponent<SpriteRenderer>().enabled = true;

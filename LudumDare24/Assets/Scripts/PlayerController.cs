@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
+using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 
 public class PlayerController : MonoBehaviour
 {
@@ -44,8 +46,12 @@ public class PlayerController : MonoBehaviour
 
     private CharacterData currentCharacterData;
     [SerializeField] private CharacterDisplay characterDisplay;
+    MangerChampi mangeChampi;
 
     private string collidedObjectName;
+
+    [SerializeField] public GameObject mushroom;
+    private SpriteRenderer spriteRenderer;
 
     #region Initialization
     private void Awake()
@@ -53,9 +59,9 @@ public class PlayerController : MonoBehaviour
         controls = new PlayerControls();
 
         // Find the character object
-        Transform childObject = transform.Find("scope");
         rgbd2D = GetComponent<Rigidbody2D>();
         interactionText.gameObject.SetActive(false);
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void OnEnable()
@@ -75,17 +81,17 @@ public class PlayerController : MonoBehaviour
     {
         Move();
 
+        // Check if player is on the ground
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
         if (jumpPressed && isGrounded)
         {
            Jump();
         }
-        // Check if player is on the ground
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
-        if (isGrounded )
+        if (isGrounded)
         {
+            m_Animator.SetBool("isJumpin", false);
             JumpNumber = 0;
             hasAttackedEnnemy = false;
-            m_Animator.SetBool("isJumpin", false);
 
         }
         Bounce();
@@ -104,10 +110,12 @@ public class PlayerController : MonoBehaviour
         // Read jump input (pressed or released)
         if (context.performed)
         {
+
             if (JumpNumber < maxJump)
             {
                 jumpPressed = true;
                 JumpNumber += 1;
+                m_Animator.SetBool("isJumpin", true);
             }
         }
         else if (context.canceled)
@@ -121,6 +129,7 @@ public class PlayerController : MonoBehaviour
         if (context.performed)
         {
             createPlatform = true;
+            m_Animator.SetBool("hasBeenCreated", true);
         }
         else if (context.canceled)
         {
@@ -129,11 +138,19 @@ public class PlayerController : MonoBehaviour
     }
     public void ReadInteractInput(InputAction.CallbackContext context)
     {
-        // Lire l'input d'interaction (pressé ou relâché)
+        // Lire l'input d'interaction (pressï¿½ ou relï¿½chï¿½)
         if (context.performed && isInRange) // Check if player is in range
         {
             if (collidedObjectName != null) {
-                characterDisplay.TriggerDialog();
+                if (characterDisplay != null)
+                {
+                    characterDisplay.TriggerDialog();
+                }
+                else if (mangeChampi != null)
+                {
+                    mangeChampi.Manger(mangeChampi.gameObject.name);
+                    m_Animator.SetBool("isEating", true);
+                }
                 interactionText.gameObject.SetActive(false);
             }
             else
@@ -153,6 +170,14 @@ public class PlayerController : MonoBehaviour
         if (direction.magnitude >= 1.0f)
         {
             rgbd2D.position += direction * mSpeed;
+            if(direction.x < 0)
+            {
+                spriteRenderer.flipX = true;
+            }
+            else if(direction.x > 0)
+            {
+                spriteRenderer.flipX = false;
+            }
             m_Animator.SetBool("isWalkin", true);
         }
         else
@@ -164,9 +189,9 @@ public class PlayerController : MonoBehaviour
     public void Jump()
     {
         // Apply jump force if grounded
-        m_Animator.SetBool("isJumpin", true);
         rgbd2D.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         jumpPressed = false;
+        
     }
 
     public void Bounce()
@@ -175,8 +200,23 @@ public class PlayerController : MonoBehaviour
 
         if (shouldBounce)
         {
-            rgbd2D.velocity = new Vector2(rgbd2D.velocity.x, 0f);
-            rgbd2D.AddForce(Vector2.up * bounceForce, ForceMode2D.Impulse);
+            Animator mushroomAnimator = mushroom.GetComponent<Animator>();
+
+            if (mushroomAnimator != null)
+            {
+                // Activer l'animation du rebond sur le champignon
+                mushroomAnimator.SetBool("hasBounce", true);
+
+                // Rï¿½initialise la vitesse verticale ï¿½ 0 avant d'ajouter la force du rebond
+                rgbd2D.velocity = new Vector2(rgbd2D.velocity.x, 0f);
+                rgbd2D.AddForce(Vector2.up * bounceForce, ForceMode2D.Impulse);
+
+                mushroomAnimator.SetBool("hasBounce", false);
+            }
+            else
+            {
+                Debug.LogWarning("Animator non trouvï¿½ sur l'objet Mushroom");
+            }
         }
     }
 
@@ -195,7 +235,7 @@ public class PlayerController : MonoBehaviour
                 ennemy.TakeDamage(attackPoints);
                 rgbd2D.velocity = new Vector2(rgbd2D.velocity.x, 0f);
                 rgbd2D.AddForce(Vector2.up * bounceForce, ForceMode2D.Impulse);
-                Debug.Log("Ennemy Attacked! " + attackPoints + " points de vie retirés.");
+
                 hasAttackedEnnemy = true;
             }
         }
@@ -211,9 +251,10 @@ public class PlayerController : MonoBehaviour
 
             StartCoroutine(DestroyPlatformAfterTime(newPlatform));
 
-            // Désactiver la création de plateforme après l'action
+            // Dï¿½sactiver la crï¿½ation de plateforme aprï¿½s l'action
             createPlatform = false;
             canCreatePlatform = false;
+            m_Animator.SetBool("hasBeenCreated", false);
 
         }
     }
@@ -222,11 +263,11 @@ public class PlayerController : MonoBehaviour
         // Attendre pendant platformLifetime secondes
         yield return new WaitForSeconds(platformLifetime);
 
-        // Détruire la plateforme
+        // Dï¿½truire la plateforme
         Destroy(platform);
         canCreatePlatform = true;
     }
-    // Gérer la détection des objets interactifs
+    // Gï¿½rer la dï¿½tection des objets interactifs
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("interactiv"))
@@ -236,8 +277,13 @@ public class PlayerController : MonoBehaviour
             collidedObjectName = collision.gameObject.name;
 
             characterDisplay = collision.gameObject.GetComponent<CharacterDisplay>();
+            mangeChampi = collision.gameObject.GetComponent<MangerChampi>();
 
-            characterDisplay.EnleverDialogue();
+            if (characterDisplay != null)
+            {
+                print("je suis la ");
+                characterDisplay.EnleverDialogue();
+            }
 
             Debug.Log(collidedObjectName);
             string interactKey = InputControlPath.ToHumanReadableString(controls.Player.Interact.bindings[0].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
@@ -245,6 +291,7 @@ public class PlayerController : MonoBehaviour
             interactionText.text = $"Press {interactKey} or {interactKey2} to interact";
             interactionText.gameObject.SetActive(true);
         }
+        print("cco c'ets encore mo");
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -254,6 +301,7 @@ public class PlayerController : MonoBehaviour
             isInRange = false;
             interactionText.gameObject.SetActive(false);
             collidedObjectName = null;
+            m_Animator.SetBool("isEating", false);
         }
     }
 }
