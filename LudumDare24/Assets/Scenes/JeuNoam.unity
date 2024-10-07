@@ -742,6 +742,10 @@ PrefabInstance:
       value: png
       objectReference: {fileID: 0}
     - target: {fileID: 5533475542159876984, guid: b7c2e1def4f22354c8eb74bceda35d1b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5533475542159876984, guid: b7c2e1def4f22354c8eb74bceda35d1b, type: 3}
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
