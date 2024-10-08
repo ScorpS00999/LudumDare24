@@ -75,7 +75,7 @@ public class CharacterDisplay : MonoBehaviour
 
         if (indexDia == 1)
         {
-
+            print("econre des problemes");
             this.GetComponentInChildren<ActivationMur>().ActivationZone();
             
         }

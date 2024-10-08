@@ -29,6 +29,9 @@ public class MangerChampi : MonoBehaviour
 
     [SerializeField] private GameObject player;
     private Animator playerAnimator;
+
+    [SerializeField] Sprite petitPlayer;
+
     
     public void Start()
     {
@@ -44,6 +47,9 @@ public class MangerChampi : MonoBehaviour
         {
             //play animation
             playerAnimator.SetBool("isMutating", true);
+            player.GetComponent<SpriteRenderer>().sprite = petitPlayer;
+            player.GetComponent<PlayerController>().canJump = false;
+
         }
     }
 }

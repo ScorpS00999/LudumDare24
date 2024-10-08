@@ -14,10 +14,16 @@ public class EnnemyController : MonoBehaviour
     //[SerializeField] Collider2D colliderZone;
     private SpriteRenderer spriteRenderer;
 
+    [SerializeField] Collider2D colliderZone;
+
+    bool mort;
+
     void Start()
     {
         startPosition = transform.position; // Position de départ
         spriteRenderer = GetComponent<SpriteRenderer>();
+
+        mort = false;
     }
 
     void FixedUpdate()
@@ -56,6 +62,7 @@ public class EnnemyController : MonoBehaviour
     public void TakeDamage(int damage)
     {
         ennemyLifePoints -= damage;
+        StartCoroutine(changeColor());
 
         if (ennemyLifePoints <= 0)
         {
@@ -65,7 +72,23 @@ public class EnnemyController : MonoBehaviour
 
     private void Die()
     {
-        Destroy(gameObject);
+        mort = true;
+        StartCoroutine(changeColor());
+        colliderZone.enabled = false;
         ValidationZone.Instance.Validation();
+    }
+
+    IEnumerator changeColor()
+    {
+        this.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+        yield return new WaitForSeconds(0.2f);
+        if (mort)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            this.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+        }
     }
 }

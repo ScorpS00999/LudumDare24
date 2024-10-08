@@ -53,6 +53,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public GameObject mushroom;
     private SpriteRenderer spriteRenderer;
 
+    public bool canJump = true;
+
     #region Initialization
     private void Awake()
     {
@@ -62,6 +64,8 @@ public class PlayerController : MonoBehaviour
         rgbd2D = GetComponent<Rigidbody2D>();
         interactionText.gameObject.SetActive(false);
         spriteRenderer = GetComponent<SpriteRenderer>();
+
+        canJump = true;
     }
 
     private void OnEnable()
@@ -108,7 +112,7 @@ public class PlayerController : MonoBehaviour
     public void ReadJumpInput(InputAction.CallbackContext context)
     {
         // Read jump input (pressed or released)
-        if (context.performed)
+        if (context.performed && canJump)
         {
 
             if (JumpNumber < maxJump)

@@ -122,7 +122,7 @@ public class SwitchGame : MonoBehaviour
 
     IEnumerator changer()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.3f);
         CameraController.Instance.shakeVibrate();
         startTransi = true;
         yield return new WaitForSeconds(timer);
