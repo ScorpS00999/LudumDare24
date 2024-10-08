@@ -52,6 +52,7 @@ public class Bulle : MonoBehaviour
 
                 dansTriger = false;
                 //bubbleAnimator.SetBool("shouldBop", true);
+                bubbleAnimator.Play("bop");
                 StartCoroutine(retourBulle());
             }
         }

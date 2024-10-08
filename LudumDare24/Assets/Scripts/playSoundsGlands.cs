@@ -10,7 +10,8 @@ public class playSoundsGlands : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            this.gameObject.GetComponent<AudioSource>().PlayOneShot(soundCollect);
+            AudioSource.PlayClipAtPoint(soundCollect, transform.position);
+            print("uwu");
         }
     }
 }
