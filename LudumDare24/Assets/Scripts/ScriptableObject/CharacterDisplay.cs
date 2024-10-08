@@ -109,7 +109,6 @@ public class CharacterDisplay : MonoBehaviour
     {
         if (gameObject.name == "ChampiJail" && collision.gameObject.CompareTag("Player") && diaCheck)
         {
-            print("ejnefjbfr");
             SwitchGame.Instance.finJeu();
         }
     }
@@ -118,9 +117,6 @@ public class CharacterDisplay : MonoBehaviour
     public int changerIndex(int index)
     {
         indexDia = index;
-        print(indexDia);
         return indexDia;
     }
-
-
 }
