@@ -29,7 +29,10 @@ public class MangerChampi : MonoBehaviour
 
     [SerializeField] private GameObject player;
     private Animator playerAnimator;
-    
+
+    [SerializeField] Sprite petitPlayer;
+
+
     public void Start()
     {
         playerAnimator = player.GetComponent<Animator>();
@@ -38,12 +41,15 @@ public class MangerChampi : MonoBehaviour
 
     public void Manger(string name)
     {
-        //play anim
-        Destroy(gameObject);
+        playerAnimator.Play("eat");
         if (name == "Champi1")
         {
-            //play animation
-            playerAnimator.SetBool("isMutating", true);
+            //playerAnimator.SetBool("isMutating", true);
+            player.GetComponent<SpriteRenderer>().sprite = petitPlayer;
+            player.GetComponent<PlayerController>().canJump = false;
+
         }
+        //playerAnimator.SetBool("isEating", false);
+        Destroy(gameObject);
     }
 }

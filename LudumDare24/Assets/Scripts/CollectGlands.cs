@@ -13,7 +13,9 @@ public class CollectGlands : MonoBehaviour
 
     private int nbrGlands = 0;
 
-    
+    [SerializeField] AudioClip soundCollect;
+
+
 
     private void Start()
     {
@@ -48,7 +50,10 @@ public class CollectGlands : MonoBehaviour
                 ValidationZone.Instance.Validation();
             }
             print(nbrGlands);
-            Destroy(collision.gameObject);
+            AudioSource.PlayClipAtPoint(soundCollect, transform.position);
+            print("uwu");
+            collision.gameObject.SetActive(false);
+            //Destroy(collision.gameObject);
         }
         
     }

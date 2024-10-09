@@ -53,6 +53,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public GameObject mushroom;
     private SpriteRenderer spriteRenderer;
 
+    public bool canJump = true;
+
     #region Initialization
     private void Awake()
     {
@@ -62,6 +64,8 @@ public class PlayerController : MonoBehaviour
         rgbd2D = GetComponent<Rigidbody2D>();
         interactionText.gameObject.SetActive(false);
         spriteRenderer = GetComponent<SpriteRenderer>();
+
+        canJump = true;
     }
 
     private void OnEnable()
@@ -92,11 +96,16 @@ public class PlayerController : MonoBehaviour
             m_Animator.SetBool("isJumpin", false);
             JumpNumber = 0;
             hasAttackedEnnemy = false;
+            m_Animator.SetBool("IsOnGround", true);
 
         }
         Bounce();
         JumpOnEnnemy();
         CreatePlatform();
+        if (!isGrounded)
+        {
+            m_Animator.SetBool("IsOnGround", false);
+        }
     }
 
     #region Input Reading
@@ -108,7 +117,7 @@ public class PlayerController : MonoBehaviour
     public void ReadJumpInput(InputAction.CallbackContext context)
     {
         // Read jump input (pressed or released)
-        if (context.performed)
+        if (context.performed && canJump)
         {
 
             if (JumpNumber < maxJump)
@@ -148,8 +157,10 @@ public class PlayerController : MonoBehaviour
                 }
                 else if (mangeChampi != null)
                 {
+                    //m_Animator.Play("eat");
+                    //m_Animator.SetBool("isEating", true);
                     mangeChampi.Manger(mangeChampi.gameObject.name);
-                    m_Animator.SetBool("isEating", true);
+                    //m_Animator.SetBool("isEating", false);
                 }
                 interactionText.gameObject.SetActive(false);
             }
@@ -191,7 +202,8 @@ public class PlayerController : MonoBehaviour
         // Apply jump force if grounded
         rgbd2D.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         jumpPressed = false;
-        
+        m_Animator.SetBool("IsOnGround", false);
+
     }
 
     public void Bounce()
@@ -301,7 +313,7 @@ public class PlayerController : MonoBehaviour
             isInRange = false;
             interactionText.gameObject.SetActive(false);
             collidedObjectName = null;
-            m_Animator.SetBool("isEating", false);
+            //m_Animator.SetBool("isEating", false);
         }
     }
 }

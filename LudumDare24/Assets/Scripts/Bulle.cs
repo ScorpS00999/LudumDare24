@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
@@ -20,10 +21,14 @@ public class Bulle : MonoBehaviour
 
     private Animator bubbleAnimator;
 
+    [SerializeField] AudioClip soundCollect;
+
     private void Start()
     {
         posTransport = new Vector2(xPosTransport, yPosTransport);
         posDebut = transform.position;
+
+        bubbleAnimator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -33,10 +38,17 @@ public class Bulle : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position, posTransport, speed * Time.deltaTime);
             player.transform.position = Vector2.MoveTowards(transform.position, posTransport, speed * Time.deltaTime);
 
+            player.GetComponent<Animator>().SetBool("isWalkin", false);
+
             if (Vector2.Distance(transform.position, posTransport) < 0.02f)
             {
+                //bubbleAnimator.SetBool("bop", true);
+                AudioSource.PlayClipAtPoint(soundCollect, transform.position);
+
                 this.gameObject.GetComponent<SpriteRenderer>().enabled = false;
                 this.gameObject.GetComponent<Collider2D>().enabled = false;
+
+
                 transform.position = posDebut;
                 player.transform.position = posTransport;
 
@@ -51,7 +63,7 @@ public class Bulle : MonoBehaviour
                 changementCam.Instance.changeFollow(gameObjectEnfant);
 
                 dansTriger = false;
-                //bubbleAnimator.SetBool("shouldBop", true);
+                print(bubbleAnimator);
                 StartCoroutine(retourBulle());
             }
         }
@@ -85,6 +97,7 @@ public class Bulle : MonoBehaviour
         //bubbleAnimator.SetBool("shouldBop", false);
         //peut etre plus tard remplacer par time.deltaTime ?
         yield return new WaitForSeconds(5);
+        //bubbleAnimator.SetBool("bop", false);
         this.gameObject.GetComponent<SpriteRenderer>().enabled = true;
         this.gameObject.GetComponent<Collider2D>().enabled = true;
     }
@@ -98,4 +111,5 @@ public class Bulle : MonoBehaviour
 
         //SceneView.RepaintAll();
     }
+
 }
