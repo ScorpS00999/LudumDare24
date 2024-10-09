@@ -2,9 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
 public class changeScene : MonoBehaviour
 {
+    [SerializeField] GameObject PlayMenuButton;
+
+    private void Start()
+    {
+        if (Gamepad.all.Count > 0)
+        {
+            EventSystem.current.SetSelectedGameObject(PlayMenuButton);
+        }
+    }
+
     public void ChangeSceneJeu()
     {
         SceneManager.LoadScene("Jeu");
