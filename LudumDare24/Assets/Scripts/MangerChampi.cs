@@ -44,7 +44,7 @@ public class MangerChampi : MonoBehaviour
         playerAnimator.Play("eat");
         if (name == "Champi1")
         {
-            //playerAnimator.SetBool("isMutating", true);
+            playerAnimator.SetBool("isMutating", true);
             player.GetComponent<SpriteRenderer>().sprite = petitPlayer;
             player.GetComponent<PlayerController>().canJump = false;
 

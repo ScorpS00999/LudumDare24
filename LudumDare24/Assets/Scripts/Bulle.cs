@@ -43,6 +43,8 @@ public class Bulle : MonoBehaviour
             if (Vector2.Distance(transform.position, posTransport) < 0.02f)
             {
                 //bubbleAnimator.SetBool("bop", true);
+
+
                 AudioSource.PlayClipAtPoint(soundCollect, transform.position);
 
                 this.gameObject.GetComponent<SpriteRenderer>().enabled = false;
@@ -54,7 +56,7 @@ public class Bulle : MonoBehaviour
 
                 //player.SetActive(true);
 
-                player.GetComponent<SpriteRenderer>().enabled = true;
+                //player.GetComponent<SpriteRenderer>().enabled = true;
                 player.GetComponent<PlayerController>().enabled = true;
 
                 Transform enfant = player.transform.Find("CameraController");
@@ -94,13 +96,15 @@ public class Bulle : MonoBehaviour
 
     IEnumerator retourBulle()
     {
-        //bubbleAnimator.SetBool("shouldBop", false);
-        //peut etre plus tard remplacer par time.deltaTime ?
+        bubbleAnimator.SetBool("bop", false);
+
         yield return new WaitForSeconds(5);
-        //bubbleAnimator.SetBool("bop", false);
+        
+        //bubbleAnimator.Play("idleBulle");
         this.gameObject.GetComponent<SpriteRenderer>().enabled = true;
         this.gameObject.GetComponent<Collider2D>().enabled = true;
     }
+
 
     void OnDrawGizmos()
     {
@@ -111,5 +115,4 @@ public class Bulle : MonoBehaviour
 
         //SceneView.RepaintAll();
     }
-
 }
