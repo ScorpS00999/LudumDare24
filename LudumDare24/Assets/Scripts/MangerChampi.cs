@@ -32,6 +32,8 @@ public class MangerChampi : MonoBehaviour
 
     [SerializeField] Sprite petitPlayer;
 
+    [SerializeField] AudioClip sound;
+
 
     public void Start()
     {
@@ -43,6 +45,10 @@ public class MangerChampi : MonoBehaviour
     {
         player.GetComponent<PlayerController>().enabled = false;
         playerAnimator.Play("eat");
+
+        AudioSource.PlayClipAtPoint(sound, transform.position);
+
+
         if (name == "Champi1")
         {
             playerAnimator.SetBool("isMutating", true);
