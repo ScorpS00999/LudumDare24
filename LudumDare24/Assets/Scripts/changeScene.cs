@@ -9,7 +9,7 @@ public class changeScene : MonoBehaviour
 {
     [SerializeField] GameObject PlayMenuButton;
 
-    private void Start()
+    private void Update()
     {
         if (Gamepad.all.Count > 0)
         {
