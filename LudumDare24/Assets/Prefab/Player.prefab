@@ -284,8 +284,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.14}
-  m_Size: {x: 0.95, y: 1}
+  m_Offset: {x: -0.020594792, y: -0.14}
+  m_Size: {x: 0.39552408, y: 1.0000001}
   m_Direction: 0
 --- !u!114 &6659350961316258280
 MonoBehaviour:
@@ -321,6 +321,7 @@ MonoBehaviour:
   interactionText: {fileID: 0}
   characterDisplay: {fileID: 0}
   mushroom: {fileID: 0}
+  canJump: 1
 --- !u!114 &5391985612128256887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -487,6 +488,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   colliderZone: {fileID: 0}
+  soundCollect: {fileID: 0}
 --- !u!70 &3537486694485492579
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -516,7 +518,7 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.24}

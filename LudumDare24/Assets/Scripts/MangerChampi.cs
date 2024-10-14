@@ -32,6 +32,8 @@ public class MangerChampi : MonoBehaviour
 
     [SerializeField] Sprite petitPlayer;
 
+    [SerializeField] AudioClip sound;
+
 
     public void Start()
     {
@@ -41,15 +43,28 @@ public class MangerChampi : MonoBehaviour
 
     public void Manger(string name)
     {
+        player.GetComponent<PlayerController>().enabled = false;
         playerAnimator.Play("eat");
+
+        AudioSource.PlayClipAtPoint(sound, transform.position);
+
+
         if (name == "Champi1")
         {
-            //playerAnimator.SetBool("isMutating", true);
+            playerAnimator.SetBool("isMutating", true);
             player.GetComponent<SpriteRenderer>().sprite = petitPlayer;
             player.GetComponent<PlayerController>().canJump = false;
 
         }
+        StartCoroutine(attendreFinAnim());
         //playerAnimator.SetBool("isEating", false);
+        
+    }
+
+    IEnumerator attendreFinAnim()
+    {
+        yield return new WaitForSeconds(1.07f);
+        player.GetComponent<PlayerController>().enabled = true;
         Destroy(gameObject);
     }
 }
